@@ -1,5 +1,4 @@
-<html lang="zh-CN">
-<head>
+<html lang="zh-CN"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>广东海洋大学新生指南</title>
@@ -43,6 +42,22 @@
             }
             .section-content.active {
                 display: block;
+            }
+            /* 导航菜单样式优化 */
+            .nav-link {
+                border-radius: 0.75rem !important;
+                transition: all 0.3s ease;
+            }
+            .nav-link.active,
+            .nav-link:hover {
+                border-radius: 0.75rem !important;
+            }
+            .nav-link.active {
+                background-color: #165DFF !important;
+                color: white !important;
+            }
+            .nav-link.active i {
+                color: white !important;
             }
         }
     </style>
@@ -1104,9 +1119,9 @@
                 
                 // 更新导航链接样式
                 navLinks.forEach(navLink => {
-                    navLink.classList.remove('bg-light', 'text-primary', 'font-medium');
+                    navLink.classList.remove('active');
                 });
-                link.classList.add('bg-light', 'text-primary', 'font-medium');
+                link.classList.add('active');
                 
                 // 在移动端点击导航链接后关闭菜单
                 if (window.innerWidth < 768) {
@@ -1155,8 +1170,5 @@
             }
         });
     </script>
-
-
-</body>
-</html>
+    </body></html>
     
