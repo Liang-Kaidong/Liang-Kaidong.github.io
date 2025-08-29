@@ -1,0 +1,1162 @@
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>广东海洋大学新生指南</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#165DFF',
+                        secondary: '#36BFFA',
+                        accent: '#FF7D00',
+                        light: '#F0F7FF',
+                        dark: '#0F172A'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            .scrollbar-hide::-webkit-scrollbar {
+                display: none;
+            }
+            .scrollbar-hide {
+                -ms-overflow-style: none;
+                scrollbar-width: none;
+            }
+            .section-content {
+                display: none;
+            }
+            .section-content.active {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body class="bg-white font-sans text-gray-800">
+    <!-- 顶部横幅 -->
+    <header class="bg-gradient-to-r from-primary to-secondary text-white shadow-lg">
+        <div class="container mx-auto px-4 py-6 md:py-10">
+            <div class="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6">
+                <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/fcceed36cee84e94bc1d4ab19ed7a7db~tplv-a9rns2rl98-image.image?rcl=2025082921182068F93B0609E76300DEE4&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1757078300&amp;x-signature=HbBzYG2YY25YK8iT46Wm8u%2BrDPo%3D" alt="广东海洋大学校徽" class="w-14 h-14 md:w-20 md:h-20 object-contain">
+                <h1 class="text-2xl md:text-3xl lg:text-4xl font-bold text-center text-shadow">广东海洋大学新生指南</h1>
+            </div>
+            <p class="text-center mt-2 md:mt-4 text-light/90 max-w-3xl mx-auto px-2">
+                开启你的海大之旅，这里有你需要知道的一切
+            </p>
+        </div>
+    </header>
+
+    <!-- 移动端导航菜单按钮 -->
+    <div class="md:hidden bg-white shadow-md sticky top-0 z-30">
+        <button id="menuToggle" class="w-full py-3 px-4 flex items-center justify-between">
+            <span class="font-medium text-primary">菜单导航</span>
+            <i class="fa fa-bars text-xl text-primary"></i>
+        </button>
+    </div>
+
+    <!-- 主要内容区 - 分栏布局 -->
+    <div class="container mx-auto flex flex-col md:flex-row">
+        <!-- 左侧导航栏 -->
+        <aside id="sidebar" class="w-full md:w-64 lg:w-72 bg-white shadow-md md:h-[calc(100vh-13rem)] md:sticky md:top-0 overflow-y-auto scrollbar-hide transform -translate-y-full md:translate-y-0 fixed md:relative inset-0 z-20 transition-transform duration-300">
+            <nav class="p-4">
+                <ul class="space-y-1">
+                    <li>
+                        <a href="#intro" class="nav-link flex items-center p-3 rounded-lg hover:bg-light hover:text-primary transition-all duration-200 active" data-target="intro">
+                            <i class="fa fa-university w-6 text-center mr-3"></i>
+                            <span>学校介绍</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#colleges" class="nav-link flex items-center p-3 rounded-lg hover:bg-light hover:text-primary transition-all duration-200" data-target="colleges">
+                            <i class="fa fa-building w-6 text-center mr-3"></i>
+                            <span>学院和区域介绍</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#hotspots" class="nav-link flex items-center p-3 rounded-lg hover:bg-light hover:text-primary transition-all duration-200" data-target="hotspots">
+                            <i class="fa fa-map-marker w-6 text-center mr-3"></i>
+                            <span>热门地点</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#routes" class="nav-link flex items-center p-3 rounded-lg hover:bg-light hover:text-primary transition-all duration-200" data-target="routes">
+                            <i class="fa fa-map w-6 text-center mr-3"></i>
+                            <span>校内路线指引</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#transport" class="nav-link flex items-center p-3 rounded-lg hover:bg-light hover:text-primary transition-all duration-200" data-target="transport">
+                            <i class="fa fa-bus w-6 text-center mr-3"></i>
+                            <span>校外出行指南</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#study" class="nav-link flex items-center p-3 rounded-lg hover:bg-light hover:text-primary transition-all duration-200" data-target="study">
+                            <i class="fa fa-book w-6 text-center mr-3"></i>
+                            <span>自习指南</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#dorm" class="nav-link flex items-center p-3 rounded-lg hover:bg-light hover:text-primary transition-all duration-200" data-target="dorm">
+                            <i class="fa fa-home w-6 text-center mr-3"></i>
+                            <span>宿舍指南</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#sports" class="nav-link flex items-center p-3 rounded-lg hover:bg-light hover:text-primary transition-all duration-200" data-target="sports">
+                            <i class="fa fa-futbol-o w-6 text-center mr-3"></i>
+                            <span>运动指南</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#food" class="nav-link flex items-center p-3 rounded-lg hover:bg-light hover:text-primary transition-all duration-200" data-target="food">
+                            <i class="fa fa-cutlery w-6 text-center mr-3"></i>
+                            <span>干饭指南</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#travel" class="nav-link flex items-center p-3 rounded-lg hover:bg-light hover:text-primary transition-all duration-200" data-target="travel">
+                            <i class="fa fa-plane w-6 text-center mr-3"></i>
+                            <span>游玩指南</span>
+                        </a>
+                    </li>
+                </ul>
+
+                <!-- 校园地图卡片 -->
+                <div class="mt-8 bg-light rounded-xl p-4 shadow-sm">
+                    <h3 class="font-semibold text-primary mb-2 flex items-center">
+                        <i class="fa fa-map-o mr-2"></i> 校园地图
+                    </h3>
+                    <div class="bg-white rounded-lg overflow-hidden border border-gray-200">
+                        <img src="https://picsum.photos/id/1015/400/300" alt="广东海洋大学校园地图" class="w-full h-48 object-cover">
+                        <div class="p-3 text-center text-sm text-gray-600">
+                            点击查看高清校园地图
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- 右侧内容区 -->
+        <main class="flex-1 p-4 md:p-6 bg-white">
+            <!-- 1. 学校介绍 -->
+            <section id="intro" class="section-content active scroll-mt-6">
+                <div class="bg-white rounded-2xl shadow-md p-5 md:p-7">
+                    <div class="flex items-center mb-5">
+                        <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4">
+                            <i class="fa fa-university text-2xl text-primary"></i>
+                        </div>
+                        <h2 class="text-2xl md:text-3xl font-bold text-gray-800">学校介绍</h2>
+                    </div>
+                    
+                    <div class="prose max-w-none">
+                        <p class="mb-4">广东海洋大学是广东省人民政府和国家海洋局共建的省属重点建设大学，创建于1935年，前身为广东省立高级水产职业学校。学校坐落于美丽的海滨城市湛江，拥有湖光校区、霞山校区、海滨校区三个校区，总面积4892亩，其中主校区湖光校区占地4083亩，是广东省占地面积最大的高校之一。</p>
+                        
+                        <p class="mb-4">学校以海洋和水产为特色，学科门类齐全，涵盖理、工、农、文、经、管、法、教、艺等九大学科门类。现有全日制本科生、研究生、留学生3.5万余人，教职工2500余人，其中高级职称人员近1000人。</p>
+                        
+                        <p>学校拥有国家级特色专业、一流本科专业建设点，以及多个省级重点学科和科研平台，在海洋科学、水产养殖、食品科学等领域具有较强的科研实力和影响力。</p>
+                    </div>
+                    
+                    <div class="mt-5 grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div class="bg-light rounded-xl p-4 text-center">
+                            <div class="text-3xl font-bold text-primary mb-1">3.5万+</div>
+                            <div class="text-gray-600">在校学生</div>
+                        </div>
+                        <div class="bg-light rounded-xl p-4 text-center">
+                            <div class="text-3xl font-bold text-primary mb-1">3个</div>
+                            <div class="text-gray-600">校区</div>
+                        </div>
+                        <div class="bg-light rounded-xl p-4 text-center">
+                            <div class="text-3xl font-bold text-primary mb-1">1935</div>
+                            <div class="text-gray-600">建校年份</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 2. 学院和区域介绍 -->
+            <section id="colleges" class="section-content scroll-mt-6">
+                <div class="bg-white rounded-2xl shadow-md p-5 md:p-7">
+                    <div class="flex items-center mb-5">
+                        <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4">
+                            <i class="fa fa-building text-2xl text-primary"></i>
+                        </div>
+                        <h2 class="text-2xl md:text-3xl font-bold text-gray-800">学院和区域介绍</h2>
+                    </div>
+                    
+                    <h3 class="text-xl font-semibold mb-4 text-gray-700">主要学院介绍</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-7">
+                        <div class="border border-gray-200 rounded-xl p-5 hover:shadow-md transition-shadow duration-300">
+                            <h4 class="font-semibold text-primary mb-2">水产学院</h4>
+                            <p class="text-gray-600">学校历史最悠久的学院之一，拥有国家级特色专业，被誉为"水产人才的摇篮"。学院实验楼里经常能看到各种鱼类和海洋生物，是摄影打卡的好地方。</p>
+                        </div>
+                        <div class="border border-gray-200 rounded-xl p-5 hover:shadow-md transition-shadow duration-300">
+                            <h4 class="font-semibold text-primary mb-2">海洋与气象学院</h4>
+                            <p class="text-gray-600">以海洋科学、大气科学为特色，学院楼顶的气象观测站是一大特色，天气爱好者可以关注每日气象数据。</p>
+                        </div>
+                        <div class="border border-gray-200 rounded-xl p-5 hover:shadow-md transition-shadow duration-300">
+                            <h4 class="font-semibold text-primary mb-2">食品科技学院</h4>
+                            <p class="text-gray-600">以食品加工、食品安全为主要研究方向，经常会有食品品尝活动，是吃货们最向往的学院之一。</p>
+                        </div>
+                        <div class="border border-gray-200 rounded-xl p-5 hover:shadow-md transition-shadow duration-300">
+                            <h4 class="font-semibold text-primary mb-2">机械与动力工程学院</h4>
+                            <p class="text-gray-600">拥有先进的工程训练中心，学生经常在那里进行各种机械设计和制作，偶尔会有让人惊叹的创意作品。</p>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-xl font-semibold mb-4 text-gray-700">校区区域趣闻</h3>
+                    <div class="mb-5">
+                        <div class="flex flex-col md:flex-row gap-5">
+                            <div class="flex-1">
+                                <img src="https://picsum.photos/id/1019/600/400" alt="湖光校区风景" class="w-full h-48 object-cover rounded-xl mb-3">
+                                <h4 class="font-semibold text-primary mb-1">湖光校区</h4>
+                                <p class="text-gray-600">主校区，因靠近著名的湖光岩风景区而得名。校内有一个美丽的西湖，常有黑天鹅栖息，是情侣约会的好去处。</p>
+                            </div>
+                            <div class="flex-1">
+                                <img src="https://picsum.photos/id/1026/600/400" alt="霞山校区风景" class="w-full h-48 object-cover rounded-xl mb-3">
+                                <h4 class="font-semibold text-primary mb-1">霞山校区</h4>
+                                <p class="text-gray-600">靠近湛江港，航海学院和轮机工程学院所在地，经常能看到穿着制服的未来航海家们。</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-amber-50 border-l-4 border-accent p-4 rounded-r-lg">
+                        <h4 class="font-semibold text-accent flex items-center">
+                            <i class="fa fa-lightbulb-o mr-2"></i> 校园趣闻
+                        </h4>
+                        <p class="text-gray-700 mt-1">湖光校区的"相思河"传说，据说走过河上的桥的情侣会永远在一起，因此成为校内最浪漫的地标之一。</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 3. 热门地点 -->
+            <section id="hotspots" class="section-content scroll-mt-6">
+                <div class="bg-white rounded-2xl shadow-md p-5 md:p-7">
+                    <div class="flex items-center mb-5">
+                        <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4">
+                            <i class="fa fa-map-marker text-2xl text-primary"></i>
+                        </div>
+                        <h2 class="text-2xl md:text-3xl font-bold text-gray-800">热门地点</h2>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                        <div class="rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300">
+                            <img src="https://picsum.photos/id/1043/600/400" alt="西湖景色" class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <h3 class="font-semibold text-lg mb-2">西湖</h3>
+                                <p class="text-gray-600 text-sm">湖光校区的标志性景观，湖中有黑天鹅、锦鲤等，湖边杨柳依依，是散步、晨读、拍照的好地方。</p>
+                            </div>
+                        </div>
+                        
+                        <div class="rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300">
+                            <img src="https://picsum.photos/id/24/600/400" alt="图书馆" class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <h3 class="font-semibold text-lg mb-2">图书馆</h3>
+                                <p class="text-gray-600 text-sm">现代化建筑，藏书丰富，学习氛围浓厚，是自习的首选地点，也是校园内最受欢迎的"打卡点"之一。</p>
+                            </div>
+                        </div>
+                        
+                        <div class="rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300">
+                            <img src="https://picsum.photos/id/1067/600/400" alt="中心广场" class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <h3 class="font-semibold text-lg mb-2">中心广场</h3>
+                                <p class="text-gray-600 text-sm">位于校园中心，是举办各类大型活动的场所，如迎新晚会、毕业典礼等。</p>
+                            </div>
+                        </div>
+                        
+                        <div class="rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300">
+                            <img src="https://picsum.photos/id/42/600/400" alt="校史馆" class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <h3 class="font-semibold text-lg mb-2">校史馆</h3>
+                                <p class="text-gray-600 text-sm">了解学校发展历程的好去处，馆内展示了大量珍贵的历史照片和实物。</p>
+                            </div>
+                        </div>
+                        
+                        <div class="rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300">
+                            <img src="https://picsum.photos/id/1068/600/400" alt="情人坡" class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <h3 class="font-semibold text-lg mb-2">情人坡</h3>
+                                <p class="text-gray-600 text-sm">位于图书馆后方的草坪，环境幽静，是学生们休息、交流、野餐的热门地点。</p>
+                            </div>
+                        </div>
+                        
+                        <div class="rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300">
+                            <img src="https://picsum.photos/id/1071/600/400" alt="商业街" class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <h3 class="font-semibold text-lg mb-2">商业街</h3>
+                                <p class="text-gray-600 text-sm">校内购物、餐饮、娱乐的集中地，有超市、餐厅、奶茶店等各类店铺。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 4. 校内路线指引 -->
+            <section id="routes" class="section-content scroll-mt-6">
+                <div class="bg-white rounded-2xl shadow-md p-5 md:p-7">
+                    <div class="flex items-center mb-5">
+                        <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4">
+                            <i class="fa fa-map text-2xl text-primary"></i>
+                        </div>
+                        <h2 class="text-2xl md:text-3xl font-bold text-gray-800">校内路线指引</h2>
+                    </div>
+                    
+                    <h3 class="text-xl font-semibold mb-4 text-gray-700">湖光校区主要路线</h3>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-7">
+                        <div class="bg-light rounded-xl p-5">
+                            <div class="flex items-center mb-3">
+                                <div class="w-8 h-8 bg-primary/20 rounded-full flex items-center justify-center mr-3">
+                                    <i class="fa fa-home text-primary"></i>
+                                </div>
+                                <h4 class="font-semibold">生活区→教学区</h4>
+                            </div>
+                            <p class="text-gray-600 text-sm">从宿舍区出发，沿同心路向东直行，经过商业街后即可到达主要教学楼群，步行约10-15分钟。</p>
+                        </div>
+                        
+                        <div class="bg-light rounded-xl p-5">
+                            <div class="flex items-center mb-3">
+                                <div class="w-8 h-8 bg-primary/20 rounded-full flex items-center justify-center mr-3">
+                                    <i class="fa fa-book text-primary"></i>
+                                </div>
+                                <h4 class="font-semibold">教学区→图书馆</h4>
+                            </div>
+                            <p class="text-gray-600 text-sm">从第二教学楼出发，沿勤学路向北直行，经过中心广场后即可到达，步行约5分钟。</p>
+                        </div>
+                        
+                        <div class="bg-light rounded-xl p-5">
+                            <div class="flex items-center mb-3">
+                                <div class="w-8 h-8 bg-primary/20 rounded-full flex items-center justify-center mr-3">
+                                    <i class="fa fa-tree text-primary"></i>
+                                </div>
+                                <h4 class="font-semibold">图书馆→西湖</h4>
+                            </div>
+                            <p class="text-gray-600 text-sm">从图书馆南门出发，沿环湖路向西步行约3分钟即可到达西湖景区。</p>
+                        </div>
+                        
+                        <div class="bg-light rounded-xl p-5">
+                            <div class="flex items-center mb-3">
+                                <div class="w-8 h-8 bg-primary/20 rounded-full flex items-center justify-center mr-3">
+                                    <i class="fa fa-futbol-o text-primary"></i>
+                                </div>
+                                <h4 class="font-semibold">生活区→运动区</h4>
+                            </div>
+                            <p class="text-gray-600 text-sm">从东区宿舍出发，沿体育路向北直行，即可到达体育馆和田径场，步行约8分钟。</p>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-xl font-semibold mb-4 text-gray-700">校内交通</h3>
+                    <div class="flex flex-col md:flex-row gap-5">
+                        <div class="flex-1 border border-gray-200 rounded-xl p-5">
+                            <div class="flex items-center mb-3">
+                                <i class="fa fa-bus text-2xl text-primary mr-3"></i>
+                                <h4 class="font-semibold">观光车</h4>
+                            </div>
+                            <p class="text-gray-600 text-sm">校内设有多个站点，环校运行，票价2元，是跨区域出行的便捷选择。主要站点：西门、商业街、图书馆、东区宿舍、体育馆。</p>
+                        </div>
+                        
+                        <div class="flex-1 border border-gray-200 rounded-xl p-5">
+                            <div class="flex items-center mb-3">
+                                <i class="fa fa-bicycle text-2xl text-primary mr-3"></i>
+                                <h4 class="font-semibold">共享单车</h4>
+                            </div>
+                            <p class="text-gray-600 text-sm">校内有多家共享单车企业入驻，方便短途出行。在各宿舍区、教学楼下均有停放点，注意规范停车。</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 5. 校外出行指南 -->
+            <section id="transport" class="section-content scroll-mt-6">
+                <div class="bg-white rounded-2xl shadow-md p-5 md:p-7">
+                    <div class="flex items-center mb-5">
+                        <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4">
+                            <i class="fa fa-bus text-2xl text-primary"></i>
+                        </div>
+                        <h2 class="text-2xl md:text-3xl font-bold text-gray-800">校外出行指南</h2>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-7">
+                        <div>
+                            <h3 class="text-xl font-semibold mb-4 text-gray-700 flex items-center">
+                                <i class="fa fa-bus text-primary mr-2"></i> 公交出行
+                            </h3>
+                            <div class="bg-light rounded-xl p-5 mb-5">
+                                <h4 class="font-semibold mb-3">湖光校区</h4>
+                                <p class="text-gray-600 mb-3">校门口有"广东海洋大学"公交站，可乘坐以下线路：</p>
+                                <ul class="space-y-2 text-gray-600">
+                                    <li class="flex items-start">
+                                        <span class="bg-primary text-white text-xs px-2 py-1 rounded-full mr-2 mt-0.5">9路</span>
+                                        <span>可直达湛江火车南站，车程约40分钟</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <span class="bg-primary text-white text-xs px-2 py-1 rounded-full mr-2 mt-0.5">6路</span>
+                                        <span>可到达霞山商业中心，车程约30分钟</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <span class="bg-primary text-white text-xs px-2 py-1 rounded-full mr-2 mt-0.5">3路</span>
+                                        <span>可到达麻章汽车站，车程约20分钟</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div class="bg-light rounded-xl p-5">
+                                <h4 class="font-semibold mb-3">霞山校区 &amp; 海滨校区</h4>
+                                <p class="text-gray-600 mb-2">交通更为便利，靠近多个公交站点：</p>
+                                <ul class="space-y-2 text-gray-600">
+                                    <li>• 霞山校区：靠近"海滨公园"公交站</li>
+                                    <li>• 海滨校区：毗邻"海滨大道中"公交站</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h3 class="text-xl font-semibold mb-4 text-gray-700 flex items-center">
+                                <i class="fa fa-taxi text-primary mr-2"></i> 出租车/网约车
+                            </h3>
+                            <div class="bg-light rounded-xl p-5 mb-5">
+                                <p class="text-gray-600 mb-3">校门口有出租车等候点，也可通过滴滴出行等APP预约网约车。</p>
+                                <ul class="space-y-2 text-gray-600">
+                                    <li>• 湖光校区到湛江市区（霞山）：约20公里，费用约50元</li>
+                                    <li>• 湖光校区到湛江机场：约30公里，费用约80元</li>
+                                    <li>• 湖光校区到湛江西站：约35公里，费用约90元</li>
+                                </ul>
+                            </div>
+                            
+                            <h3 class="text-xl font-semibold mb-4 text-gray-700 flex items-center">
+                                <i class="fa fa-train text-primary mr-2"></i> 长途出行
+                            </h3>
+                            <div class="bg-light rounded-xl p-5">
+                                <ul class="space-y-3 text-gray-600">
+                                    <li class="flex items-start">
+                                        <i class="fa fa-railway text-primary mt-1 mr-3 w-4"></i>
+                                        <div>
+                                            <span class="font-medium">火车站</span>：湛江站（霞山）、湛江西站（麻章）
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fa fa-plane text-primary mt-1 mr-3 w-4"></i>
+                                        <div>
+                                            <span class="font-medium">机场</span>：湛江吴川机场
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fa fa-bus text-primary mt-1 mr-3 w-4"></i>
+                                        <div>
+                                            <span class="font-medium">汽车站</span>：湛江汽车南站、海田汽车客运站
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 6. 自习指南 -->
+            <section id="study" class="section-content scroll-mt-6">
+                <div class="bg-white rounded-2xl shadow-md p-5 md:p-7">
+                    <div class="flex items-center mb-5">
+                        <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4">
+                            <i class="fa fa-book text-2xl text-primary"></i>
+                        </div>
+                        <h2 class="text-2xl md:text-3xl font-bold text-gray-800">自习指南</h2>
+                    </div>
+                    
+                    <div class="mb-7">
+                        <h3 class="text-xl font-semibold mb-4 text-gray-700">图书馆</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+                            <div class="md:col-span-2">
+                                <img src="https://picsum.photos/id/20/800/400" alt="图书馆内部" class="w-full h-64 object-cover rounded-xl mb-4">
+                                
+                                <div class="space-y-4">
+                                    <div>
+                                        <h4 class="font-semibold text-gray-700 mb-1">开放时间</h4>
+                                        <p class="text-gray-600">周一至周五 8:00-22:00；周六至周日 9:00-22:00</p>
+                                    </div>
+                                    
+                                    <div>
+                                        <h4 class="font-semibold text-gray-700 mb-1">预约方式</h4>
+                                        <p class="text-gray-600">通过"广东海洋大学图书馆"微信公众号预约座位。</p>
+                                    </div>
+                                    
+                                    <div>
+                                        <h4 class="font-semibold text-gray-700 mb-1">小贴士</h4>
+                                        <p class="text-gray-600">考试周座位紧张，建议提前预约或早到占座；图书馆内禁止饮食和大声喧哗。</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <h4 class="font-semibold text-gray-700 mb-3">楼层分布</h4>
+                                <div class="space-y-3">
+                                    <div class="bg-light p-3 rounded-lg">
+                                        <div class="font-medium text-primary">1楼</div>
+                                        <div class="text-sm text-gray-600">总服务台、自助借还区、展览区</div>
+                                    </div>
+                                    <div class="bg-light p-3 rounded-lg">
+                                        <div class="font-medium text-primary">2-4楼</div>
+                                        <div class="text-sm text-gray-600">各类图书借阅区及阅览座位</div>
+                                    </div>
+                                    <div class="bg-light p-3 rounded-lg">
+                                        <div class="font-medium text-primary">5楼</div>
+                                        <div class="text-sm text-gray-600">电子阅览室、研讨室</div>
+                                    </div>
+                                    <div class="bg-light p-3 rounded-lg">
+                                        <div class="font-medium text-primary">6-7楼</div>
+                                        <div class="text-sm text-gray-600">专业阅览室、特藏文献区</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-xl font-semibold mb-4 text-gray-700">其他自习地点</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+                        <div class="border border-gray-200 rounded-xl p-5 hover:shadow-md transition-shadow duration-300">
+                            <div class="flex items-center mb-3">
+                                <i class="fa fa-building text-xl text-primary mr-3"></i>
+                                <h4 class="font-semibold">教学楼自习室</h4>
+                            </div>
+                            <ul class="text-gray-600 text-sm space-y-2">
+                                <li>• 各教学楼晚间均有开放的自习室</li>
+                                <li>• 优势：位置便利，离宿舍近</li>
+                                <li>• 推荐：第二教学楼、实验楼</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="border border-gray-200 rounded-xl p-5 hover:shadow-md transition-shadow duration-300">
+                            <div class="flex items-center mb-3">
+                                <i class="fa fa-folder-open text-xl text-primary mr-3"></i>
+                                <h4 class="font-semibold">院系阅览室</h4>
+                            </div>
+                            <ul class="text-gray-600 text-sm space-y-2">
+                                <li>• 部分学院设有本院系的阅览室</li>
+                                <li>• 优势：专业书籍丰富，适合专业学习</li>
+                                <li>• 需凭学生证进入</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="border border-gray-200 rounded-xl p-5 hover:shadow-md transition-shadow duration-300">
+                            <div class="flex items-center mb-3">
+                                <i class="fa fa-coffee text-xl text-primary mr-3"></i>
+                                <h4 class="font-semibold">商业街咖啡馆</h4>
+                            </div>
+                            <ul class="text-gray-600 text-sm space-y-2">
+                                <li>• 环境轻松，提供饮品和小吃</li>
+                                <li>• 适合小组讨论或轻松阅读</li>
+                                <li>• 推荐：湖畔咖啡、书香咖啡</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 7. 宿舍指南 -->
+            <section id="dorm" class="section-content scroll-mt-6">
+                <div class="bg-white rounded-2xl shadow-md p-5 md:p-7">
+                    <div class="flex items-center mb-5">
+                        <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4">
+                            <i class="fa fa-home text-2xl text-primary"></i>
+                        </div>
+                        <h2 class="text-2xl md:text-3xl font-bold text-gray-800">宿舍指南</h2>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-7 mb-7">
+                        <div class="lg:col-span-2">
+                            <h3 class="text-xl font-semibold mb-4 text-gray-700">宿舍类型</h3>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                                <div class="border border-gray-200 rounded-xl overflow-hidden">
+                                    <img src="https://picsum.photos/id/164/600/400" alt="四人间宿舍" class="w-full h-48 object-cover">
+                                    <div class="p-4">
+                                        <h4 class="font-semibold text-primary mb-2">四人间</h4>
+                                        <p class="text-gray-600 text-sm">上床下桌，独立卫生间，有阳台，配备空调、热水器</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="border border-gray-200 rounded-xl overflow-hidden">
+                                    <img src="https://picsum.photos/id/174/600/400" alt="六人间宿舍" class="w-full h-48 object-cover">
+                                    <div class="p-4">
+                                        <h4 class="font-semibold text-primary mb-2">六人间</h4>
+                                        <p class="text-gray-600 text-sm">上下铺，独立卫生间，有阳台，配备空调、热水器</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h3 class="text-xl font-semibold mb-4 text-gray-700">生活设施</h3>
+                            <div class="space-y-4">
+                                <div class="flex items-start">
+                                    <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
+                                        <i class="fa fa-tint text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-medium">热水供应</h4>
+                                        <p class="text-gray-600 text-sm">每天固定时段供应热水，需使用校园卡</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start">
+                                    <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
+                                        <i class="fa fa-bolt text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-medium">供电时间</h4>
+                                        <p class="text-gray-600 text-sm">6:00-23:00（周末及节假日延长至23:30）</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start">
+                                    <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
+                                        <i class="fa fa-shopping-wrench text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-medium">洗衣机</h4>
+                                        <p class="text-gray-600 text-sm">每栋宿舍楼均有公共洗衣房，支持扫码付费使用</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start">
+                                    <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
+                                        <i class="fa fa-water text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-medium">饮水机</h4>
+                                        <p class="text-gray-600 text-sm">每层楼配备饮水机，提供冷热饮用水</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-7">
+                        <div>
+                            <h3 class="text-xl font-semibold mb-4 text-gray-700">宿舍公约</h3>
+                            <div class="bg-light rounded-xl p-5">
+                                <ul class="space-y-3 text-gray-600">
+                                    <li class="flex items-start">
+                                        <i class="fa fa-times-circle text-red-500 mt-1 mr-3"></i>
+                                        <span>严禁使用大功率电器（如电饭煲、电热毯等）</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fa fa-check-circle text-green-500 mt-1 mr-3"></i>
+                                        <span>保持宿舍卫生，定期打扫</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fa fa-volume-off text-blue-500 mt-1 mr-3"></i>
+                                        <span>晚上11点后保持安静，不影响他人休息</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fa fa-id-card-o text-purple-500 mt-1 mr-3"></i>
+                                        <span>遵守宿舍管理规定，配合宿管检查</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h3 class="text-xl font-semibold mb-4 text-gray-700">小贴士</h3>
+                            <div class="bg-amber-50 rounded-xl p-5">
+                                <ul class="space-y-3 text-gray-600">
+                                    <li class="flex items-start">
+                                        <i class="fa fa-lightbulb-o text-amber-500 mt-1 mr-3"></i>
+                                        <span>开学时可购买学校统一供应的床上用品，也可自带</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fa fa-lightbulb-o text-amber-500 mt-1 mr-3"></i>
+                                        <span>建议准备一些常用小电器，如台灯、小风扇等</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fa fa-lightbulb-o text-amber-500 mt-1 mr-3"></i>
+                                        <span>与室友保持良好沟通，共同营造和谐的宿舍氛围</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fa fa-lightbulb-o text-amber-500 mt-1 mr-3"></i>
+                                        <span>宿舍钥匙和校园卡要妥善保管，丢失后及时挂失补办</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 8. 运动指南 -->
+            <section id="sports" class="section-content scroll-mt-6">
+                <div class="bg-white rounded-2xl shadow-md p-5 md:p-7">
+                    <div class="flex items-center mb-5">
+                        <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4">
+                            <i class="fa fa-futbol-o text-2xl text-primary"></i>
+                        </div>
+                        <h2 class="text-2xl md:text-3xl font-bold text-gray-800">运动指南</h2>
+                    </div>
+                    
+                    <h3 class="text-xl font-semibold mb-4 text-gray-700">运动场馆</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-7">
+                        <div class="rounded-xl overflow-hidden shadow-sm">
+                            <img src="https://picsum.photos/id/1058/600/400" alt="体育馆" class="w-full h-48 object-cover">
+                            <div class="p-5">
+                                <h4 class="font-semibold text-lg mb-2 text-primary">体育馆</h4>
+                                <p class="text-gray-600 mb-3">内设篮球场、羽毛球场、乒乓球室、健身房等</p>
+                                <div class="text-sm text-gray-500">
+                                    <span class="inline-block bg-gray-100 px-2 py-1 rounded mr-2 mb-2">需要提前预约</span>
+                                    <span class="inline-block bg-gray-100 px-2 py-1 rounded mr-2 mb-2">部分项目收费</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="rounded-xl overflow-hidden shadow-sm">
+                            <img src="https://picsum.photos/id/1059/600/400" alt="田径场" class="w-full h-48 object-cover">
+                            <div class="p-5">
+                                <h4 class="font-semibold text-lg mb-2 text-primary">田径场</h4>
+                                <p class="text-gray-600 mb-3">标准400米塑胶跑道，足球场</p>
+                                <div class="text-sm text-gray-500">
+                                    <span class="inline-block bg-gray-100 px-2 py-1 rounded mr-2 mb-2">开放时间：6:00-22:00</span>
+                                    <span class="inline-block bg-gray-100 px-2 py-1 rounded mr-2 mb-2">免费使用</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-7">
+                        <div class="border border-gray-200 rounded-xl p-5">
+                            <h4 class="font-semibold text-primary mb-3">室外运动区</h4>
+                            <p class="text-gray-600 mb-3">多个篮球场、网球场、排球场</p>
+                            <ul class="text-gray-600 text-sm space-y-1">
+                                <li>• 免费开放，先到先得</li>
+                                <li>• 篮球场分布在东西区宿舍附近</li>
+                                <li>• 网球场需提前预约</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="border border-gray-200 rounded-xl p-5">
+                            <h4 class="font-semibold text-primary mb-3">游泳池</h4>
+                            <p class="text-gray-600 mb-3">标准泳池，夏季开放</p>
+                            <ul class="text-gray-600 text-sm space-y-1">
+                                <li>• 需购票进入，学生有优惠</li>
+                                <li>• 有专业教练提供游泳培训</li>
+                                <li>• 开放时间：16:00-21:00（夏季）</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-xl font-semibold mb-4 text-gray-700">体育活动</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                        <div class="bg-light rounded-xl p-4 text-center">
+                            <div class="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-3">
+                                <i class="fa fa-trophy text-primary"></i>
+                            </div>
+                            <h4 class="font-semibold mb-1">校运会</h4>
+                            <p class="text-gray-600 text-sm">每年11月举办，各院系均派代表队参加</p>
+                        </div>
+                        
+                        <div class="bg-light rounded-xl p-4 text-center">
+                            <div class="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-3">
+                                <i class="fa fa-users text-primary"></i>
+                            </div>
+                            <h4 class="font-semibold mb-1">体育社团</h4>
+                            <p class="text-gray-600 text-sm">篮球社、足球社、羽毛球社等，定期组织活动</p>
+                        </div>
+                        
+                        <div class="bg-light rounded-xl p-4 text-center">
+                            <div class="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-3">
+                                <i class="fa fa-male text-primary"></i>
+                            </div>
+                            <h4 class="font-semibold mb-1">晨跑打卡</h4>
+                            <p class="text-gray-600 text-sm">学校推行晨跑打卡制度，对学生体质健康有要求</p>
+                        </div>
+                        
+                        <div class="bg-light rounded-xl p-4 text-center">
+                            <div class="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-3">
+                                <i class="fa fa-flag text-primary"></i>
+                            </div>
+                            <h4 class="font-semibold mb-1">院系比赛</h4>
+                            <p class="text-gray-600 text-sm">各院系间会举办各类体育比赛，增进交流</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 9. 干饭指南 -->
+            <section id="food" class="section-content scroll-mt-6">
+                <div class="bg-white rounded-2xl shadow-md p-5 md:p-7">
+                    <div class="flex items-center mb-5">
+                        <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4">
+                            <i class="fa fa-cutlery text-2xl text-primary"></i>
+                        </div>
+                        <h2 class="text-2xl md:text-3xl font-bold text-gray-800">干饭指南</h2>
+                    </div>
+                    
+                    <h3 class="text-xl font-semibold mb-4 text-gray-700">校内食堂</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 mb-7">
+                        <div class="border border-gray-200 rounded-xl overflow-hidden hover:shadow-md transition-shadow duration-300">
+                            <img src="https://picsum.photos/id/292/600/400" alt="一饭堂" class="w-full h-36 object-cover">
+                            <div class="p-4">
+                                <h4 class="font-semibold text-primary mb-2">一饭堂</h4>
+                                <p class="text-gray-600 text-sm mb-2">靠近东区宿舍，价格实惠</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="bg-amber-100 text-amber-800 text-xs px-2 py-0.5 rounded">广式早茶</span>
+                                    <span class="bg-amber-100 text-amber-800 text-xs px-2 py-0.5 rounded">烧腊饭</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="border border-gray-200 rounded-xl overflow-hidden hover:shadow-md transition-shadow duration-300">
+                            <img src="https://picsum.photos/id/431/600/400" alt="二饭堂" class="w-full h-36 object-cover">
+                            <div class="p-4">
+                                <h4 class="font-semibold text-primary mb-2">二饭堂</h4>
+                                <p class="text-gray-600 text-sm mb-2">位于教学区附近，适合课间用餐</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="bg-amber-100 text-amber-800 text-xs px-2 py-0.5 rounded">麻辣烫</span>
+                                    <span class="bg-amber-100 text-amber-800 text-xs px-2 py-0.5 rounded">铁板烧</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="border border-gray-200 rounded-xl overflow-hidden hover:shadow-md transition-shadow duration-300">
+                            <img src="https://picsum.photos/id/488/600/400" alt="三饭堂" class="w-full h-36 object-cover">
+                            <div class="p-4">
+                                <h4 class="font-semibold text-primary mb-2">三饭堂</h4>
+                                <p class="text-gray-600 text-sm mb-2">靠近西区宿舍，环境较好</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="bg-amber-100 text-amber-800 text-xs px-2 py-0.5 rounded">扒饭</span>
+                                    <span class="bg-amber-100 text-amber-800 text-xs px-2 py-0.5 rounded">汤粉面</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="border border-gray-200 rounded-xl overflow-hidden hover:shadow-md transition-shadow duration-300">
+                            <img src="https://picsum.photos/id/365/600/400" alt="清真食堂" class="w-full h-36 object-cover">
+                            <div class="p-4">
+                                <h4 class="font-semibold text-primary mb-2">清真食堂</h4>
+                                <p class="text-gray-600 text-sm mb-2">提供清真食品，风味独特</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="bg-amber-100 text-amber-800 text-xs px-2 py-0.5 rounded">兰州拉面</span>
+                                    <span class="bg-amber-100 text-amber-800 text-xs px-2 py-0.5 rounded">手抓饭</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-7">
+                        <div>
+                            <h3 class="text-xl font-semibold mb-4 text-gray-700">校内商业街</h3>
+                            <div class="bg-light rounded-xl p-5">
+                                <ul class="space-y-3">
+                                    <li class="flex items-start">
+                                        <i class="fa fa-shopping-bag text-primary mt-1 mr-3"></i>
+                                        <div>
+                                            <span class="font-medium">特色小吃店</span>
+                                            <p class="text-gray-600 text-sm">麻辣烫、炸鸡、奶茶、寿司等</p>
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fa fa-cutlery text-primary mt-1 mr-3"></i>
+                                        <div>
+                                            <span class="font-medium">连锁餐饮品牌</span>
+                                            <p class="text-gray-600 text-sm">真功夫、麦当劳等</p>
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fa fa-apple text-primary mt-1 mr-3"></i>
+                                        <div>
+                                            <span class="font-medium">水果超市</span>
+                                            <p class="text-gray-600 text-sm">提供新鲜水果，可现切</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h3 class="text-xl font-semibold mb-4 text-gray-700">校外美食</h3>
+                            <div class="space-y-4">
+                                <div class="border border-gray-200 rounded-xl p-4">
+                                    <h4 class="font-semibold text-primary mb-2">湖光岩周边</h4>
+                                    <ul class="text-gray-600 text-sm space-y-1">
+                                        <li>• 农家乐：以海鲜和本地特色菜为主</li>
+                                        <li>• 烧烤摊：晚上营业，适合同学小聚</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="border border-gray-200 rounded-xl p-4">
+                                    <h4 class="font-semibold text-primary mb-2">霞山商业区</h4>
+                                    <ul class="text-gray-600 text-sm space-y-1">
+                                        <li>• 各类餐厅应有尽有，从平价小吃到高档餐厅</li>
+                                        <li>• 推荐：海鲜大排档、粤式早茶</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-5 bg-amber-50 p-4 rounded-xl">
+                        <h4 class="font-semibold text-amber-700 mb-2">小贴士</h4>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• 食堂用餐可使用校园卡或支付宝</li>
+                            <li>• 学校食堂支持打包，但提倡自带餐具，环保又卫生</li>
+                            <li>• 湛江海鲜闻名，周末可约上同学到市区品尝新鲜海鲜</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 10. 游玩指南 -->
+            <section id="travel" class="section-content scroll-mt-6">
+                <div class="bg-white rounded-2xl shadow-md p-5 md:p-7">
+                    <div class="flex items-center mb-5">
+                        <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4">
+                            <i class="fa fa-plane text-2xl text-primary"></i>
+                        </div>
+                        <h2 class="text-2xl md:text-3xl font-bold text-gray-800">游玩指南</h2>
+                    </div>
+                    
+                    <h3 class="text-xl font-semibold mb-4 text-gray-700">校内景点</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-7">
+                        <div class="rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300">
+                            <img src="https://picsum.photos/id/1043/600/400" alt="西湖景区" class="w-full h-40 object-cover">
+                            <div class="p-4">
+                                <h3 class="font-semibold text-primary mb-1">西湖景区</h3>
+                                <p class="text-gray-600 text-sm">欣赏黑天鹅、湖心亭，春季杨柳依依，景色宜人</p>
+                            </div>
+                        </div>
+                        
+                        <div class="rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300">
+                            <img src="https://picsum.photos/id/131/600/400" alt="相思河" class="w-full h-40 object-cover">
+                            <div class="p-4">
+                                <h3 class="font-semibold text-primary mb-1">相思河</h3>
+                                <p class="text-gray-600 text-sm">校园内的浪漫之地，河畔绿树成荫，适合散步</p>
+                            </div>
+                        </div>
+                        
+                        <div class="rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300">
+                            <img src="https://picsum.photos/id/1071/600/400" alt="水生生物博物馆" class="w-full h-40 object-cover">
+                            <div class="p-4">
+                                <h3 class="font-semibold text-primary mb-1">水生生物博物馆</h3>
+                                <p class="text-gray-600 text-sm">了解海洋生物的好去处，展品丰富</p>
+                            </div>
+                        </div>
+                        
+                        <div class="rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300">
+                            <img src="https://picsum.photos/id/42/600/400" alt="校史长廊" class="w-full h-40 object-cover">
+                            <div class="p-4">
+                                <h3 class="font-semibold text-primary mb-1">校史长廊</h3>
+                                <p class="text-gray-600 text-sm">了解学校发展历程，感受海大文化</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-xl font-semibold mb-4 text-gray-700">周边景点</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-7">
+                        <div class="border border-gray-200 rounded-xl overflow-hidden">
+                            <img src="https://picsum.photos/id/1018/600/400" alt="湖光岩世界地质公园" class="w-full h-48 object-cover">
+                            <div class="p-5">
+                                <h4 class="font-semibold text-lg mb-2 text-primary">湖光岩世界地质公园</h4>
+                                <p class="text-gray-600 mb-3">距离学校仅2公里，中国唯一的玛珥湖</p>
+                                <div class="flex items-center text-sm text-gray-500">
+                                    <i class="fa fa-map-marker text-red-500 mr-2"></i>
+                                    <span>建议骑行或乘坐公交前往，门票学生半价</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="border border-gray-200 rounded-xl overflow-hidden">
+                            <img src="https://picsum.photos/id/1039/600/400" alt="硇洲岛" class="w-full h-48 object-cover">
+                            <div class="p-5">
+                                <h4 class="font-semibold text-lg mb-2 text-primary">硇洲岛</h4>
+                                <p class="text-gray-600 mb-3">中国第一大火山岛，盛产海鲜</p>
+                                <div class="flex items-center text-sm text-gray-500">
+                                    <i class="fa fa-map-marker text-red-500 mr-2"></i>
+                                    <span>适合周末一日游，需从东海岛码头乘船前往</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-xl font-semibold mb-4 text-gray-700">校园活动</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                        <div class="bg-light rounded-xl p-5">
+                            <div class="flex items-center mb-3">
+                                <div class="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center mr-3">
+                                    <i class="fa fa-music text-primary"></i>
+                                </div>
+                                <h4 class="font-semibold">迎新晚会 &amp; 校园歌手大赛</h4>
+                            </div>
+                            <p class="text-gray-600 text-sm">开学初举办迎新晚会，各学院精彩节目轮番上演；每年举办校园歌手大赛，发掘校园好声音。</p>
+                        </div>
+                        
+                        <div class="bg-light rounded-xl p-5">
+                            <div class="flex items-center mb-3">
+                                <div class="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center mr-3">
+                                    <i class="fa fa-anchor text-primary"></i>
+                                </div>
+                                <h4 class="font-semibold">海洋文化节</h4>
+                            </div>
+                            <p class="text-gray-600 text-sm">学校特色活动，展示海洋文化和科研成果，有各种海洋主题展览和互动活动。</p>
+                        </div>
+                        
+                        <div class="bg-light rounded-xl p-5">
+                            <div class="flex items-center mb-3">
+                                <div class="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center mr-3">
+                                    <i class="fa fa-users text-primary"></i>
+                                </div>
+                                <h4 class="font-semibold">社团招新日</h4>
+                            </div>
+                            <p class="text-gray-600 text-sm">百余个社团集中招新，被称为"百团大战"，是新生加入社团、拓展兴趣的好机会。</p>
+                        </div>
+                        
+                        <div class="bg-light rounded-xl p-5">
+                            <div class="flex items-center mb-3">
+                                <div class="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center mr-3">
+                                    <i class="fa fa-graduation-cap text-primary"></i>
+                                </div>
+                                <h4 class="font-semibold">学术讲座与论坛</h4>
+                            </div>
+                            <p class="text-gray-600 text-sm">学校定期举办各类学术讲座和论坛，邀请校内外专家学者分享前沿知识。</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- 页脚 -->
+    <footer class="bg-dark text-white py-6">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <h3 class="text-xl font-bold mb-2">广东海洋大学新生指南</h3>
+                    <p class="text-gray-400">祝你在海大度过美好的大学时光</p>
+                </div>
+                <div class="flex space-x-4">
+                    <a href="#" class="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center hover:bg-primary/40 transition-colors duration-300">
+                        <i class="fa fa-weixin"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center hover:bg-primary/40 transition-colors duration-300">
+                        <i class="fa fa-weibo"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center hover:bg-primary/40 transition-colors duration-300">
+                        <i class="fa fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-5 pt-5 text-center text-gray-400 text-sm">
+                © 2023 广东海洋大学 新生指南 | 本指南仅供参考，具体以学校官方信息为准
+            </div>
+        </div>
+    </footer>
+
+    <!-- 回到顶部按钮 -->
+    <button id="backToTop" class="fixed bottom-6 right-6 w-12 h-12 bg-primary text-white rounded-full shadow-lg flex items-center justify-center opacity-0 invisible transition-all duration-300 hover:bg-primary/90">
+        <i class="fa fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // 移动端菜单切换
+        const menuToggle = document.getElementById('menuToggle');
+        const sidebar = document.getElementById('sidebar');
+        const navLinks = document.querySelectorAll('.nav-link');
+        const sections = document.querySelectorAll('.section-content');
+        
+        menuToggle.addEventListener('click', () => {
+            if (sidebar.classList.contains('-translate-y-full')) {
+                sidebar.classList.remove('-translate-y-full');
+                sidebar.classList.add('translate-y-0');
+                menuToggle.innerHTML = '<span class="font-medium text-primary">关闭菜单</span><i class="fa fa-times text-xl text-primary"></i>';
+            } else {
+                sidebar.classList.add('-translate-y-full');
+                sidebar.classList.remove('translate-y-0');
+                menuToggle.innerHTML = '<span class="font-medium text-primary">菜单导航</span><i class="fa fa-bars text-xl text-primary"></i>';
+            }
+        });
+        
+        // 导航链接点击事件
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                
+                // 获取目标内容区域ID
+                const targetId = link.getAttribute('data-target');
+                
+                // 隐藏所有内容区域
+                sections.forEach(section => {
+                    section.classList.remove('active');
+                });
+                
+                // 显示目标内容区域
+                document.getElementById(targetId).classList.add('active');
+                
+                // 更新导航链接样式
+                navLinks.forEach(navLink => {
+                    navLink.classList.remove('bg-light', 'text-primary', 'font-medium');
+                });
+                link.classList.add('bg-light', 'text-primary', 'font-medium');
+                
+                // 在移动端点击导航链接后关闭菜单
+                if (window.innerWidth < 768) {
+                    sidebar.classList.add('-translate-y-full');
+                    sidebar.classList.remove('translate-y-0');
+                    menuToggle.innerHTML = '<span class="font-medium text-primary">菜单导航</span><i class="fa fa-bars text-xl text-primary"></i>';
+                }
+                
+                // 滚动到顶部
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // 回到顶部按钮
+        const backToTopButton = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('opacity-0', 'invisible');
+                backToTopButton.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopButton.classList.remove('opacity-100', 'visible');
+                backToTopButton.classList.add('opacity-0', 'invisible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // 窗口大小变化时调整菜单状态
+        window.addEventListener('resize', () => {
+            if (window.innerWidth >= 768) {
+                sidebar.classList.remove('-translate-y-full');
+                sidebar.classList.add('translate-y-0');
+            } else {
+                sidebar.classList.add('-translate-y-full');
+                sidebar.classList.remove('translate-y-0');
+                menuToggle.innerHTML = '<span class="font-medium text-primary">菜单导航</span><i class="fa fa-bars text-xl text-primary"></i>';
+            }
+        });
+    </script>
+
+
+</body>
+</html>
+    
