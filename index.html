@@ -91,6 +91,7 @@
                 max-width: 90%;
                 max-height: 90%;
                 position: relative;
+                width: 100%;
             }
             .close-map {
                 position: absolute;
@@ -106,6 +107,72 @@
                 justify-content: center;
                 cursor: pointer;
                 font-size: 1.2rem;
+                z-index: 10;
+            }
+            /* 图片切换按钮 */
+            .image-nav-btn {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 48px;
+                height: 48px;
+                background: rgba(0,0,0,0.5);
+                color: white;
+                border: none;
+                border-radius: 50%;
+                font-size: 1.5rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                z-index: 10;
+                transition: all 0.3s ease;
+            }
+            .image-nav-btn:hover {
+                background: rgba(0,0,0,0.8);
+            }
+            .prev-btn {
+                left: -24px;
+            }
+            .next-btn {
+                right: -24px;
+            }
+            /* 图片指示器 */
+            .image-indicators {
+                position: absolute;
+                bottom: -30px;
+                left: 50%;
+                transform: translateX(-50%);
+                display: flex;
+                gap: 8px;
+            }
+            .image-indicator {
+                width: 10px;
+                height: 10px;
+                border-radius: 50%;
+                background: rgba(255,255,255,0.5);
+                cursor: pointer;
+                transition: all 0.3s ease;
+            }
+            .image-indicator.active {
+                background: white;
+                transform: scale(1.2);
+            }
+            /* 移动端水平导航 */
+            .mobile-nav {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+            .mobile-nav ul {
+                display: flex;
+                gap: 8px;
+                padding: 8px 0;
+                min-width: max-content;
+            }
+            .mobile-nav .nav-link {
+                white-space: nowrap;
+                padding: 8px 12px !important;
+                font-size: 0.9rem;
             }
         }
     </style>
@@ -125,18 +192,78 @@
         </div>
     </header>
 
-    <!-- 移动端导航菜单按钮 -->
+    <!-- 移动端导航菜单 - 改为水平布局 -->
     <div class="md:hidden bg-white shadow-md sticky top-0 z-40">
-        <button id="menuToggle" class="w-full py-3 px-4 flex items-center justify-between">
-            <span class="font-medium text-primary">菜单导航</span>
-            <i class="fa fa-bars text-xl text-primary"></i>
-        </button>
+        <div class="mobile-nav scrollbar-hide px-4">
+            <ul class="space-y-0">
+                <li>
+                    <a href="#intro" class="nav-link flex items-center p-3 rounded-lg hover:bg-light hover:text-primary transition-all duration-200 active" data-target="intro">
+                        <i class="fa fa-university w-5 text-center mr-2"></i>
+                        <span>学校介绍</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#colleges" class="nav-link flex items-center p-3 rounded-lg hover:bg-light hover:text-primary transition-all duration-200" data-target="colleges">
+                        <i class="fa fa-building w-5 text-center mr-2"></i>
+                        <span>学院介绍</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#hotspots" class="nav-link flex items-center p-3 rounded-lg hover:bg-light hover:text-primary transition-all duration-200" data-target="hotspots">
+                        <i class="fa fa-map-marker w-5 text-center mr-2"></i>
+                        <span>热门地点</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#routes" class="nav-link flex items-center p-3 rounded-lg hover:bg-light hover:text-primary transition-all duration-200" data-target="routes">
+                        <i class="fa fa-map w-5 text-center mr-2"></i>
+                        <span>校内路线</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#transport" class="nav-link flex items-center p-3 rounded-lg hover:bg-light hover:text-primary transition-all duration-200" data-target="transport">
+                        <i class="fa fa-bus w-5 text-center mr-2"></i>
+                        <span>校外出行</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#study" class="nav-link flex items-center p-3 rounded-lg hover:bg-light hover:text-primary transition-all duration-200" data-target="study">
+                        <i class="fa fa-book w-5 text-center mr-2"></i>
+                        <span>自习指南</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#dorm" class="nav-link flex items-center p-3 rounded-lg hover:bg-light hover:text-primary transition-all duration-200" data-target="dorm">
+                        <i class="fa fa-home w-5 text-center mr-2"></i>
+                        <span>宿舍指南</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#sports" class="nav-link flex items-center p-3 rounded-lg hover:bg-light hover:text-primary transition-all duration-200" data-target="sports">
+                        <i class="fa fa-futbol-o w-5 text-center mr-2"></i>
+                        <span>运动指南</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#food" class="nav-link flex items-center p-3 rounded-lg hover:bg-light hover:text-primary transition-all duration-200" data-target="food">
+                        <i class="fa fa-cutlery w-5 text-center mr-2"></i>
+                        <span>干饭指南</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#travel" class="nav-link flex items-center p-3 rounded-lg hover:bg-light hover:text-primary transition-all duration-200" data-target="travel">
+                        <i class="fa fa-plane w-5 text-center mr-2"></i>
+                        <span>游玩指南</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
     </div>
 
     <!-- 主要内容区 - 分栏布局 -->
     <div class="container mx-auto flex flex-col md:flex-row">
-        <!-- 左侧导航栏 -->
-        <aside id="sidebar" class="w-full md:w-64 lg:w-72 bg-white shadow-md md:h-[calc(100vh-13rem)] md:sticky md:top-0 overflow-y-auto scrollbar-hide transform translate-y-[-100%] md:translate-y-0 fixed md:relative top-[48px] md:top-0 left-0 right-0 z-30 transition-transform duration-300">
+        <!-- 左侧导航栏 - 仅在桌面显示 -->
+        <aside id="sidebar" class="hidden md:block w-full md:w-64 lg:w-72 bg-white shadow-md md:h-[calc(100vh-13rem)] md:sticky md:top-0 overflow-y-auto scrollbar-hide">
             <nav class="p-4">
                 <ul class="space-y-1">
                     <li>
@@ -217,13 +344,29 @@
             </nav>
         </aside>
 
-        <!-- 高清地图模态框 -->
+        <!-- 高清地图模态框 - 支持多图切换 -->
         <div class="map-modal" id="mapModal">
             <div class="map-content">
                 <div class="close-map" id="closeMap">
                     <i class="fa fa-times"></i>
                 </div>
-                <img class="lazy-image max-w-full max-h-[90vh] object-contain" data-src="https://picsum.photos/id/1015/1200/900" alt="广东海洋大学校园高清地图">
+                <!-- 图片切换按钮 -->
+                <button class="image-nav-btn prev-btn" id="prevImage">
+                    <i class="fa fa-chevron-left"></i>
+                </button>
+                <button class="image-nav-btn next-btn" id="nextImage">
+                    <i class="fa fa-chevron-right"></i>
+                </button>
+                
+                <!-- 图片容器 -->
+                <div id="imageContainer">
+                    <img class="lazy-image max-w-full max-h-[90vh] object-contain" data-src="" alt="校园图片">
+                </div>
+                
+                <!-- 图片指示器 -->
+                <div class="image-indicators" id="imageIndicators">
+                    <!-- 动态生成指示器 -->
+                </div>
             </div>
         </div>
 
@@ -1006,9 +1149,9 @@
                     <h3 class="text-xl font-semibold mb-4 text-gray-700">校内景点</h3>
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-7">
                         <div class="rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300">
-                            <img class="lazy-image w-full h-40 object-cover" data-src="https://picsum.photos/id/1043/600/400" alt="西湖景区">
+                            <img class="lazy-image w-full h-40 object-cover" data-src="https://picsum.photos/id/1043/600/400" alt="西湖景色">
                             <div class="p-4">
-                                <h3 class="font-semibold text-primary mb-1">西湖景区</h3>
+                                <h3 class="font-semibold text-primary mb-1">西湖</h3>
                                 <p class="text-gray-600 text-sm">欣赏黑天鹅、湖心亭，春季杨柳依依，景色宜人</p>
                             </div>
                         </div>
@@ -1139,7 +1282,7 @@
     </footer>
 
     <!-- 回到顶部按钮 -->
-    <button id="backToTop" class="fixed bottom-6 right-6 w-12 h-12 bg-primary text-white rounded-full shadow-lg flex items-center justify-center opacity-0 invisible transition-all duration-300 hover:bg-primary/90">
+    <button id="backToTop" class="fixed bottom-6 right-6 w-12 h-12 bg-primary text-white rounded-full shadow-lg flex items-center justify-center opacity-0 invisible transition-all duration-500 hover:bg-primary/90">
         <i class="fa fa-arrow-up"></i>
     </button>
 
@@ -1168,6 +1311,9 @@
             document.querySelectorAll('img[data-src]').forEach(img => {
                 lazyLoadObserver.observe(img);
             });
+            
+            // 初始化图片浏览功能
+            initImageViewer();
         });
         
         // 加载当前激活区域的图片
@@ -1182,29 +1328,10 @@
             }
         }
         
-        // 移动端菜单切换
-        const menuToggle = document.getElementById('menuToggle');
-        const sidebar = document.getElementById('sidebar');
+        // 导航链接点击事件
         const navLinks = document.querySelectorAll('.nav-link');
         const sections = document.querySelectorAll('.section-content');
-        const mapPreview = document.getElementById('mapPreview');
-        const mapModal = document.getElementById('mapModal');
-        const closeMap = document.getElementById('closeMap');
         
-        // 移动端菜单控制
-        menuToggle.addEventListener('click', () => {
-            if (sidebar.classList.contains('translate-y-[-100%]')) {
-                sidebar.classList.remove('translate-y-[-100%]');
-                sidebar.classList.add('translate-y-0');
-                menuToggle.innerHTML = '<span class="font-medium text-primary">关闭菜单</span><i class="fa fa-times text-xl text-primary"></i>';
-            } else {
-                sidebar.classList.add('translate-y-[-100%]');
-                sidebar.classList.remove('translate-y-0');
-                menuToggle.innerHTML = '<span class="font-medium text-primary">菜单导航</span><i class="fa fa-bars text-xl text-primary"></i>';
-            }
-        });
-        
-        // 导航链接点击事件
         navLinks.forEach(link => {
             link.addEventListener('click', (e) => {
                 e.preventDefault();
@@ -1230,45 +1357,129 @@
                 });
                 link.classList.add('active');
                 
-                // 在移动端点击导航链接后关闭菜单
-                if (window.innerWidth < 768) {
-                    sidebar.classList.add('translate-y-[-100%]');
-                    sidebar.classList.remove('translate-y-0');
-                    menuToggle.innerHTML = '<span class="font-medium text-primary">菜单导航</span><i class="fa fa-bars text-xl text-primary"></i>';
-                }
-                
                 // 平滑滚动到顶部
                 scrollToTop();
             });
         });
 
-        // 地图查看功能
-        mapPreview.addEventListener('click', () => {
-            mapModal.classList.add('active');
-            document.body.style.overflow = 'hidden';
+        // 图片浏览功能
+        function initImageViewer() {
+            const mapPreview = document.getElementById('mapPreview');
+            const mapModal = document.getElementById('mapModal');
+            const closeMap = document.getElementById('closeMap');
+            const prevBtn = document.getElementById('prevImage');
+            const nextBtn = document.getElementById('nextImage');
+            const imageContainer = document.getElementById('imageContainer');
+            const imageIndicators = document.getElementById('imageIndicators');
+            const imageElement = imageContainer.querySelector('img');
             
-            // 加载高清地图
-            const mapImage = mapModal.querySelector('img[data-src]');
-            if (mapImage && !mapImage.src) {
-                mapImage.src = mapImage.dataset.src;
-                mapImage.classList.remove('lazy-image');
+            // 图片数组 - 5张校园相关图片
+            const images = [
+                {
+                    url: "https://picsum.photos/id/1015/1200/900",
+                    alt: "广东海洋大学校园全景地图"
+                },
+                {
+                    url: "https://picsum.photos/id/1019/1200/900",
+                    alt: "广东海洋大学湖光校区风景"
+                },
+                {
+                    url: "https://picsum.photos/id/1043/1200/900",
+                    alt: "广东海洋大学西湖景区"
+                },
+                {
+                    url: "https://picsum.photos/id/24/1200/900",
+                    alt: "广东海洋大学图书馆"
+                },
+                {
+                    url: "https://picsum.photos/id/1067/1200/900",
+                    alt: "广东海洋大学中心广场"
+                }
+            ];
+            
+            let currentImageIndex = 0;
+            
+            // 创建图片指示器
+            images.forEach((_, index) => {
+                const indicator = document.createElement('div');
+                indicator.className = `image-indicator ${index === 0 ? 'active' : ''}`;
+                indicator.addEventListener('click', () => {
+                    currentImageIndex = index;
+                    updateImageDisplay();
+                });
+                imageIndicators.appendChild(indicator);
+            });
+            
+            // 更新图片显示
+            function updateImageDisplay() {
+                const currentImage = images[currentImageIndex];
+                imageElement.dataset.src = currentImage.url;
+                imageElement.src = currentImage.url;
+                imageElement.alt = currentImage.alt;
+                imageElement.classList.remove('lazy-image');
+                
+                // 更新指示器状态
+                const indicators = imageIndicators.querySelectorAll('.image-indicator');
+                indicators.forEach((indicator, index) => {
+                    if (index === currentImageIndex) {
+                        indicator.classList.add('active');
+                    } else {
+                        indicator.classList.remove('active');
+                    }
+                });
             }
-        });
-        
-        closeMap.addEventListener('click', () => {
-            mapModal.classList.remove('active');
-            document.body.style.overflow = '';
-        });
-        
-        // 点击模态框背景关闭地图
-        mapModal.addEventListener('click', (e) => {
-            if (e.target === mapModal) {
+            
+            // 上一张图片
+            prevBtn.addEventListener('click', () => {
+                currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+                updateImageDisplay();
+            });
+            
+            // 下一张图片
+            nextBtn.addEventListener('click', () => {
+                currentImageIndex = (currentImageIndex + 1) % images.length;
+                updateImageDisplay();
+            });
+            
+            // 打开地图模态框
+            mapPreview.addEventListener('click', () => {
+                mapModal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+                updateImageDisplay(); // 确保显示当前图片
+            });
+            
+            // 关闭地图模态框
+            closeMap.addEventListener('click', () => {
                 mapModal.classList.remove('active');
                 document.body.style.overflow = '';
-            }
-        });
+            });
+            
+            // 点击模态框背景关闭地图
+            mapModal.addEventListener('click', (e) => {
+                if (e.target === mapModal) {
+                    mapModal.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+            
+            // 键盘导航
+            document.addEventListener('keydown', (e) => {
+                if (!mapModal.classList.contains('active')) return;
+                
+                if (e.key === 'ArrowLeft') {
+                    currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+                    updateImageDisplay();
+                } else if (e.key === 'ArrowRight') {
+                    currentImageIndex = (currentImageIndex + 1) % images.length;
+                    updateImageDisplay();
+                } else if (e.key === 'Escape') {
+                    mapModal.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+        }
 
-        // 回到顶部按钮功能
+        // 回到顶部按钮功能 - 优化动画效果
         const backToTopButton = document.getElementById('backToTop');
         
         window.addEventListener('scroll', () => {
@@ -1283,43 +1494,46 @@
         
         backToTopButton.addEventListener('click', scrollToTop);
         
-        // 滚动到顶部并同步菜单位置
+        // 平滑滚动到顶部 - 使用自定义动画函数使滚动更丝滑
         function scrollToTop() {
-            // 平滑滚动到顶部
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
+            const startPosition = window.pageYOffset;
+            const targetPosition = 0;
+            const distance = targetPosition - startPosition;
+            const duration = 800; // 延长动画时间，使滚动更丝滑
+            let startTime = null;
             
-            // 同步滚动侧边栏到顶部
-            sidebar.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
+            // 侧边栏滚动动画
+            const sidebar = document.getElementById('sidebar');
+            const sidebarStart = sidebar.scrollTop;
+            const sidebarDistance = -sidebarStart;
             
-            // 强制确保滚动到最顶部
-            setTimeout(() => {
-                window.scrollTo(0, 0);
-                sidebar.scrollTop = 0;
-            }, 500);
+            function animation(currentTime) {
+                if (startTime === null) startTime = currentTime;
+                const timeElapsed = currentTime - startTime;
+                const progress = Math.min(timeElapsed / duration, 1);
+                
+                // 使用缓动函数使动画更自然 (easeOutCubic)
+                const easeProgress = 1 - Math.pow(1 - progress, 3);
+                
+                // 页面滚动
+                window.scrollTo(0, startPosition + distance * easeProgress);
+                
+                // 侧边栏滚动
+                sidebar.scrollTop = sidebarStart + sidebarDistance * easeProgress;
+                
+                if (timeElapsed < duration) {
+                    requestAnimationFrame(animation);
+                }
+            }
+            
+            requestAnimationFrame(animation);
         }
 
         // 监听页面滚动，当页面回到顶部时同步菜单
         window.addEventListener('scroll', () => {
             if (window.pageYOffset === 0) {
+                const sidebar = document.getElementById('sidebar');
                 sidebar.scrollTop = 0;
-            }
-        });
-
-        // 窗口大小变化时调整菜单状态
-        window.addEventListener('resize', () => {
-            if (window.innerWidth >= 768) {
-                sidebar.classList.remove('translate-y-[-100%]');
-                sidebar.classList.add('translate-y-0');
-            } else {
-                sidebar.classList.add('translate-y-[-100%]');
-                sidebar.classList.remove('translate-y-0');
-                menuToggle.innerHTML = '<span class="font-medium text-primary">菜单导航</span><i class="fa fa-bars text-xl text-primary"></i>';
             }
         });
     </script>
