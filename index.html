@@ -31,7 +31,7 @@
                 content-visibility: auto;
             }
             .text-shadow {
-                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                text-shadow: 0 2px 4px rgba(0,0,0,0.3);
             }
             .scrollbar-hide::-webkit-scrollbar {
                 display: none;
@@ -174,13 +174,57 @@
                 padding: 8px 12px !important;
                 font-size: 0.9rem;
             }
+            /* 微信二维码弹窗 */
+            .wechat-modal {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.7);
+                z-index: 60;
+                align-items: center;
+                justify-content: center;
+                padding: 1rem;
+            }
+            .wechat-modal.active {
+                display: flex;
+                animation: fadeIn 0.3s ease;
+            }
+            .wechat-content {
+                background: white;
+                padding: 2rem;
+                border-radius: 1rem;
+                text-align: center;
+            }
+            .close-wechat {
+                margin-top: 1rem;
+                padding: 0.5rem 1.5rem;
+                background: #165DFF;
+                color: white;
+                border: none;
+                border-radius: 0.5rem;
+                cursor: pointer;
+            }
+            @keyframes fadeIn {
+                from { opacity: 0; }
+                to { opacity: 1; }
+            }
         }
     </style>
 </head>
 <body class="bg-white font-sans text-gray-800">
-    <!-- 顶部横幅 -->
-    <header class="bg-gradient-to-r from-primary to-secondary text-white shadow-lg">
-        <div class="container mx-auto px-4 py-6 md:py-10">
+    <!-- 顶部横幅 - 使用图片背景并添加渐变遮罩确保文字清晰 -->
+    <header class="relative shadow-lg text-white overflow-hidden" style="
+        background-image: url('https://picsum.photos/id/1019/1600/800');
+        background-size: cover;
+        background-position: center;
+    ">
+        <!-- 渐变遮罩层确保文字清晰可见 -->
+        <div class="absolute inset-0 bg-gradient-to-r from-primary/80 to-secondary/80"></div>
+        
+        <div class="container mx-auto px-4 py-6 md:py-10 relative z-10">
             <div class="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6">
                 <!-- 校徽图片保留src，作为关键图片优先加载 -->
                 <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/fcceed36cee84e94bc1d4ab19ed7a7db~tplv-a9rns2rl98-image.image?rcl=2025082921182068F93B0609E76300DEE4&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1757078300&amp;x-signature=HbBzYG2YY25YK8iT46Wm8u%2BrDPo%3D" alt="广东海洋大学校徽" class="w-14 h-14 md:w-20 md:h-20 object-contain">
@@ -367,6 +411,16 @@
                 <div class="image-indicators" id="imageIndicators">
                     <!-- 动态生成指示器 -->
                 </div>
+            </div>
+        </div>
+
+        <!-- 微信二维码模态框 -->
+        <div class="wechat-modal" id="wechatModal">
+            <div class="wechat-content">
+                <h3 class="text-xl font-bold mb-3">广东海洋大学官方微信</h3>
+                <img src="https://picsum.photos/id/237/200/200" alt="广东海洋大学微信公众号二维码" class="w-64 h-64 mx-auto">
+                <p class="mt-2 text-gray-600">扫码关注获取更多校园资讯</p>
+                <button class="close-wechat" id="closeWechat">关闭</button>
             </div>
         </div>
 
@@ -1255,6 +1309,15 @@
         </main>
     </div>
 
+    <!-- 版本切换区 -->
+    <div class="bg-gray-100 py-3">
+        <div class="container mx-auto px-4 text-center">
+            <button id="switchToMobile" class="px-4 py-2 bg-primary text-white rounded-lg mr-2 hidden md:inline-block">手机版</button>
+            <button id="switchToDesktop" class="px-4 py-2 bg-gray-600 text-white rounded-lg md:hidden">电脑版</button>
+            <span class="text-gray-500 text-sm ml-2">根据您的设备自动优化显示</span>
+        </div>
+    </div>
+
     <!-- 页脚 -->
     <footer class="bg-dark text-white py-6">
         <div class="container mx-auto px-4">
@@ -1264,14 +1327,17 @@
                     <p class="text-gray-400">祝你在海大度过美好的大学时光</p>
                 </div>
                 <div class="flex space-x-4">
-                    <a href="#" class="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center hover:bg-primary/40 transition-colors duration-300">
+                    <!-- 微信图标 - 点击显示二维码 -->
+                    <a href="#" id="wechatIcon" class="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center hover:bg-primary/40 transition-colors duration-300 cursor-pointer">
                         <i class="fa fa-weixin"></i>
                     </a>
-                    <a href="#" class="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center hover:bg-primary/40 transition-colors duration-300">
-                        <i class="fa fa-weibo"></i>
+                    <!-- 学校官网图标 -->
+                    <a href="https://www.gdou.edu.cn/index.htm" target="_blank" class="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center hover:bg-primary/40 transition-colors duration-300">
+                        <i class="fa fa-globe"></i>
                     </a>
-                    <a href="#" class="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center hover:bg-primary/40 transition-colors duration-300">
-                        <i class="fa fa-instagram"></i>
+                    <!-- GitHub图标 -->
+                    <a href="https://github.com/Liang-Kaidong/" target="_blank" class="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center hover:bg-primary/40 transition-colors duration-300">
+                        <i class="fa fa-github"></i>
                     </a>
                 </div>
             </div>
@@ -1305,6 +1371,9 @@
                         observer.unobserve(img);
                     }
                 });
+            }, {
+                rootMargin: '200px 0px', // 提前200px开始加载
+                threshold: 0.01
             });
             
             // 观察所有带有data-src属性的图片
@@ -1314,6 +1383,12 @@
             
             // 初始化图片浏览功能
             initImageViewer();
+            
+            // 初始化微信二维码模态框
+            initWechatModal();
+            
+            // 初始化版本切换功能
+            initVersionSwitch();
         });
         
         // 加载当前激活区域的图片
@@ -1479,6 +1554,74 @@
             });
         }
 
+        // 微信二维码模态框功能
+        function initWechatModal() {
+            const wechatIcon = document.getElementById('wechatIcon');
+            const wechatModal = document.getElementById('wechatModal');
+            const closeWechat = document.getElementById('closeWechat');
+            
+            wechatIcon.addEventListener('click', (e) => {
+                e.preventDefault();
+                wechatModal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+            
+            closeWechat.addEventListener('click', () => {
+                wechatModal.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+            
+            wechatModal.addEventListener('click', (e) => {
+                if (e.target === wechatModal) {
+                    wechatModal.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+            
+            document.addEventListener('keydown', (e) => {
+                if (wechatModal.classList.contains('active') && e.key === 'Escape') {
+                    wechatModal.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+        }
+
+        // 版本切换功能
+        function initVersionSwitch() {
+            const switchToMobile = document.getElementById('switchToMobile');
+            const switchToDesktop = document.getElementById('switchToDesktop');
+            const mobileNav = document.querySelector('.mobile-nav').parentElement;
+            const sidebar = document.getElementById('sidebar');
+            
+            // 切换到手机版
+            switchToMobile.addEventListener('click', () => {
+                mobileNav.classList.remove('hidden');
+                sidebar.classList.add('hidden');
+                sidebar.classList.remove('block');
+                switchToMobile.classList.add('hidden');
+                switchToDesktop.classList.remove('hidden');
+                localStorage.setItem('viewMode', 'mobile');
+            });
+            
+            // 切换到电脑版
+            switchToDesktop.addEventListener('click', () => {
+                mobileNav.classList.add('hidden');
+                sidebar.classList.remove('hidden');
+                sidebar.classList.add('block');
+                switchToMobile.classList.remove('hidden');
+                switchToDesktop.classList.add('hidden');
+                localStorage.setItem('viewMode', 'desktop');
+            });
+            
+            // 检查本地存储的视图模式
+            const savedMode = localStorage.getItem('viewMode');
+            if (savedMode === 'mobile') {
+                switchToMobile.click();
+            } else if (savedMode === 'desktop') {
+                switchToDesktop.click();
+            }
+        }
+
         // 回到顶部按钮功能 - 优化动画效果
         const backToTopButton = document.getElementById('backToTop');
         
@@ -1518,7 +1661,7 @@
                 // 页面滚动
                 window.scrollTo(0, startPosition + distance * easeProgress);
                 
-                // 侧边栏滚动
+                // 侧边栏滚动动画
                 sidebar.scrollTop = sidebarStart + sidebarDistance * easeProgress;
                 
                 if (timeElapsed < duration) {
@@ -1529,13 +1672,58 @@
             requestAnimationFrame(animation);
         }
 
-        // 监听页面滚动，当页面回到顶部时同步菜单
+        // 监听页面滚动，当页面回到顶部时同步菜单滚动
         window.addEventListener('scroll', () => {
             if (window.pageYOffset === 0) {
                 const sidebar = document.getElementById('sidebar');
-                sidebar.scrollTop = 0;
+                // 为侧边栏添加平滑滚动到顶部的动画
+                const duration = 500;
+                const start = sidebar.scrollTop;
+                const distance = -start;
+                let startTime = null;
+                
+                function animate(currentTime) {
+                    if (startTime === null) startTime = currentTime;
+                    const timeElapsed = currentTime - startTime;
+                    const progress = Math.min(timeElapsed / duration, 1);
+                    const easeProgress = 1 - Math.pow(1 - progress, 3);
+                    
+                    sidebar.scrollTop = start + distance * easeProgress;
+                    
+                    if (timeElapsed < duration) {
+                        requestAnimationFrame(animate);
+                    }
+                }
+                
+                requestAnimationFrame(animate);
             }
         });
+
+        // 优化页面加载性能
+        function optimizePerformance() {
+            // 延迟加载非关键JavaScript
+            const lazyLoadScripts = () => {
+                // 这里可以放置非首屏必要的JavaScript代码
+            };
+            
+            // 当页面加载完成后执行
+            if (document.readyState === 'complete') {
+                lazyLoadScripts();
+            } else {
+                window.addEventListener('load', lazyLoadScripts);
+            }
+            
+            // 减少不必要的重绘和回流
+            const style = document.createElement('style');
+            style.textContent = `
+                .section-content { will-change: opacity, transform; }
+                img { will-change: opacity; }
+            `;
+            document.head.appendChild(style);
+        }
+        
+        // 执行性能优化
+        optimizePerformance();
     </script>
 </body>
 </html>
