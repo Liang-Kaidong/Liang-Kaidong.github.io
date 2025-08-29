@@ -1,12 +1,13 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
+<html lang="zh-CN"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>广东海洋大学新生指南</title>
     <!-- 使用更快的CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- 优化图标加载：使用异步加载并添加预连接 -->
+    <link rel="preconnect" href="https://cdn.bootcdn.net">
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"></noscript>
     <script>
         tailwind.config = {
             theme: {
@@ -215,14 +216,10 @@
     </style>
 </head>
 <body class="bg-white font-sans text-gray-800">
-    <!-- 顶部横幅 - 使用图片背景并添加渐变遮罩确保文字清晰 -->
-    <header class="relative shadow-lg text-white overflow-hidden" style="
-        background-image: url('https://picsum.photos/id/1019/1600/800');
-        background-size: cover;
-        background-position: center;
-    ">
-        <!-- 渐变遮罩层确保文字清晰可见 -->
-        <div class="absolute inset-0 bg-gradient-to-r from-primary/80 to-secondary/80"></div>
+    <!-- 顶部横幅 - 删除蓝色遮罩层 -->
+    <header class="relative shadow-lg text-white overflow-hidden">
+        <!-- 背景图片使用懒加载方式，方便替换 -->
+        <img class="lazy-image absolute inset-0 w-full h-full object-cover" data-src="https://picsum.photos/id/1019/1600/800" alt="广东海洋大学校园风光" src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/a6aea730c191444b8b2b57de1b570d49~tplv-a9rns2rl98-image.image?rcl=2025082923141972DE1E5E93D5220985C9&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1757085260&amp;x-signature=%2FssDk%2BB7Kbp6QTnR5zpW5vPnjnI%3D">
         
         <div class="container mx-auto px-4 py-6 md:py-10 relative z-10">
             <div class="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6">
@@ -230,9 +227,7 @@
                 <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/fcceed36cee84e94bc1d4ab19ed7a7db~tplv-a9rns2rl98-image.image?rcl=2025082921182068F93B0609E76300DEE4&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1757078300&amp;x-signature=HbBzYG2YY25YK8iT46Wm8u%2BrDPo%3D" alt="广东海洋大学校徽" class="w-14 h-14 md:w-20 md:h-20 object-contain">
                 <h1 class="text-2xl md:text-3xl lg:text-4xl font-bold text-center text-shadow">广东海洋大学新生指南</h1>
             </div>
-            <p class="text-center mt-2 md:mt-4 text-light/90 max-w-3xl mx-auto px-2">
-                开启你的海大之旅，这里有你需要知道的一切
-            </p>
+            <p class="text-center mt-2 md:mt-4 text-light/90 max-w-3xl mx-auto px-2">开启你的海大之旅，这里有你需要知道的一切</p>
         </div>
     </header>
 
@@ -1309,15 +1304,6 @@
         </main>
     </div>
 
-    <!-- 版本切换区 -->
-    <div class="bg-gray-100 py-3">
-        <div class="container mx-auto px-4 text-center">
-            <button id="switchToMobile" class="px-4 py-2 bg-primary text-white rounded-lg mr-2 hidden md:inline-block">手机版</button>
-            <button id="switchToDesktop" class="px-4 py-2 bg-gray-600 text-white rounded-lg md:hidden">电脑版</button>
-            <span class="text-gray-500 text-sm ml-2">根据您的设备自动优化显示</span>
-        </div>
-    </div>
-
     <!-- 页脚 -->
     <footer class="bg-dark text-white py-6">
         <div class="container mx-auto px-4">
@@ -1343,6 +1329,13 @@
             </div>
             <div class="border-t border-gray-700 mt-5 pt-5 text-center text-gray-400 text-sm">
                 © 2023 广东海洋大学 新生指南 | 本指南仅供参考，具体以学校官方信息为准
+                
+                <!-- 版本切换区 - 移至页脚信息后面 -->
+                <div class="mt-3">
+                    <button id="switchToMobile" class="px-4 py-1.5 bg-primary text-white rounded-lg mr-2 hidden md:inline-block text-sm">手机版</button>
+                    <button id="switchToDesktop" class="px-4 py-1.5 bg-gray-600 text-white rounded-lg md:hidden text-sm">电脑版</button>
+                    <span class="text-gray-500 text-xs ml-2">根据您的设备自动优化显示</span>
+                </div>
             </div>
         </div>
     </footer>
@@ -1725,6 +1718,6 @@
         // 执行性能优化
         optimizePerformance();
     </script>
-</body>
-</html>
-    
+
+
+    </body></html>
