@@ -1,9 +1,11 @@
-<html lang="zh-CN"><head>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>广东海洋大学新生指南</title>
+    <!-- 使用更快的CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- 使用国内CDN加速Font Awesome加载 -->
     <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <script>
         tailwind.config = {
@@ -44,16 +46,23 @@
             .section-content.active {
                 display: block;
             }
-            /* 导航菜单样式优化 - 确保圆角矩形 */
+            /* 图片懒加载相关样式 */
+            .lazy-image {
+                background-color: #f3f4f6;
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23d1d5db'%3E%3Cpath d='M12 2L4 7l8 5 8-5-8-5zM4 15l8 5 8-5M4 11l8 5 8-5'/%3E%3C/svg%3E");
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: 40px;
+            }
             .nav-link {
-                border-radius: 0.75rem !important; /* 明确圆角值 */
+                border-radius: 0.75rem !important;
                 transition: all 0.3s ease;
                 position: relative;
-                z-index: 10; /* 确保链接在菜单之上 */
+                z-index: 10;
             }
             .nav-link.active,
             .nav-link:hover {
-                border-radius: 0.75rem !important; /* 状态变化时保持圆角 */
+                border-radius: 0.75rem !important;
             }
             .nav-link.active {
                 background-color: #165DFF !important;
@@ -62,7 +71,6 @@
             .nav-link.active i {
                 color: white !important;
             }
-            /* 地图模态框样式 */
             .map-modal {
                 display: none;
                 position: fixed;
@@ -107,6 +115,7 @@
     <header class="bg-gradient-to-r from-primary to-secondary text-white shadow-lg">
         <div class="container mx-auto px-4 py-6 md:py-10">
             <div class="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6">
+                <!-- 校徽图片保留src，作为关键图片优先加载 -->
                 <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/fcceed36cee84e94bc1d4ab19ed7a7db~tplv-a9rns2rl98-image.image?rcl=2025082921182068F93B0609E76300DEE4&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1757078300&amp;x-signature=HbBzYG2YY25YK8iT46Wm8u%2BrDPo%3D" alt="广东海洋大学校徽" class="w-14 h-14 md:w-20 md:h-20 object-contain">
                 <h1 class="text-2xl md:text-3xl lg:text-4xl font-bold text-center text-shadow">广东海洋大学新生指南</h1>
             </div>
@@ -198,7 +207,8 @@
                         <i class="fa fa-map-o mr-2"></i> 校园地图
                     </h3>
                     <div class="bg-white rounded-lg overflow-hidden border border-gray-200 cursor-pointer" id="mapPreview">
-                        <img src="https://picsum.photos/id/1015/400/300" alt="广东海洋大学校园地图缩略图" class="w-full h-48 object-cover">
+                        <!-- 地图缩略图使用懒加载 -->
+                        <img class="lazy-image w-full h-48 object-cover" data-src="https://picsum.photos/id/1015/400/300" alt="广东海洋大学校园地图缩略图">
                         <div class="p-3 text-center text-sm text-gray-600">
                             点击查看高清校园地图
                         </div>
@@ -213,7 +223,7 @@
                 <div class="close-map" id="closeMap">
                     <i class="fa fa-times"></i>
                 </div>
-                <img src="https://picsum.photos/id/1015/1200/900" alt="广东海洋大学校园高清地图" class="max-w-full max-h-[90vh] object-contain">
+                <img class="lazy-image max-w-full max-h-[90vh] object-contain" data-src="https://picsum.photos/id/1015/1200/900" alt="广东海洋大学校园高清地图">
             </div>
         </div>
 
@@ -288,12 +298,13 @@
                     <div class="mb-5">
                         <div class="flex flex-col md:flex-row gap-5">
                             <div class="flex-1">
-                                <img src="https://picsum.photos/id/1019/600/400" alt="湖光校区风景" class="w-full h-48 object-cover rounded-xl mb-3">
+                                <!-- 使用懒加载 -->
+                                <img class="lazy-image w-full h-48 object-cover rounded-xl mb-3" data-src="https://picsum.photos/id/1019/600/400" alt="湖光校区风景">
                                 <h4 class="font-semibold text-primary mb-1">湖光校区</h4>
                                 <p class="text-gray-600">主校区，因靠近著名的湖光岩风景区而得名。校内有一个美丽的西湖，常有黑天鹅栖息，是情侣约会的好去处。</p>
                             </div>
                             <div class="flex-1">
-                                <img src="https://picsum.photos/id/1026/600/400" alt="霞山校区风景" class="w-full h-48 object-cover rounded-xl mb-3">
+                                <img class="lazy-image w-full h-48 object-cover rounded-xl mb-3" data-src="https://picsum.photos/id/1026/600/400" alt="霞山校区风景">
                                 <h4 class="font-semibold text-primary mb-1">霞山校区</h4>
                                 <p class="text-gray-600">靠近湛江港，航海学院和轮机工程学院所在地，经常能看到穿着制服的未来航海家们。</p>
                             </div>
@@ -321,7 +332,7 @@
                     
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
                         <div class="rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300">
-                            <img src="https://picsum.photos/id/1043/600/400" alt="西湖景色" class="w-full h-48 object-cover">
+                            <img class="lazy-image w-full h-48 object-cover" data-src="https://picsum.photos/id/1043/600/400" alt="西湖景色">
                             <div class="p-4">
                                 <h3 class="font-semibold text-lg mb-2">西湖</h3>
                                 <p class="text-gray-600 text-sm">湖光校区的标志性景观，湖中有黑天鹅、锦鲤等，湖边杨柳依依，是散步、晨读、拍照的好地方。</p>
@@ -329,7 +340,7 @@
                         </div>
                         
                         <div class="rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300">
-                            <img src="https://picsum.photos/id/24/600/400" alt="图书馆" class="w-full h-48 object-cover">
+                            <img class="lazy-image w-full h-48 object-cover" data-src="https://picsum.photos/id/24/600/400" alt="图书馆">
                             <div class="p-4">
                                 <h3 class="font-semibold text-lg mb-2">图书馆</h3>
                                 <p class="text-gray-600 text-sm">现代化建筑，藏书丰富，学习氛围浓厚，是自习的首选地点，也是校园内最受欢迎的"打卡点"之一。</p>
@@ -337,7 +348,7 @@
                         </div>
                         
                         <div class="rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300">
-                            <img src="https://picsum.photos/id/1067/600/400" alt="中心广场" class="w-full h-48 object-cover">
+                            <img class="lazy-image w-full h-48 object-cover" data-src="https://picsum.photos/id/1067/600/400" alt="中心广场">
                             <div class="p-4">
                                 <h3 class="font-semibold text-lg mb-2">中心广场</h3>
                                 <p class="text-gray-600 text-sm">位于校园中心，是举办各类大型活动的场所，如迎新晚会、毕业典礼等。</p>
@@ -345,7 +356,7 @@
                         </div>
                         
                         <div class="rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300">
-                            <img src="https://picsum.photos/id/42/600/400" alt="校史馆" class="w-full h-48 object-cover">
+                            <img class="lazy-image w-full h-48 object-cover" data-src="https://picsum.photos/id/42/600/400" alt="校史馆">
                             <div class="p-4">
                                 <h3 class="font-semibold text-lg mb-2">校史馆</h3>
                                 <p class="text-gray-600 text-sm">了解学校发展历程的好去处，馆内展示了大量珍贵的历史照片和实物。</p>
@@ -353,7 +364,7 @@
                         </div>
                         
                         <div class="rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300">
-                            <img src="https://picsum.photos/id/1068/600/400" alt="情人坡" class="w-full h-48 object-cover">
+                            <img class="lazy-image w-full h-48 object-cover" data-src="https://picsum.photos/id/1068/600/400" alt="情人坡">
                             <div class="p-4">
                                 <h3 class="font-semibold text-lg mb-2">情人坡</h3>
                                 <p class="text-gray-600 text-sm">位于图书馆后方的草坪，环境幽静，是学生们休息、交流、野餐的热门地点。</p>
@@ -361,7 +372,7 @@
                         </div>
                         
                         <div class="rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300">
-                            <img src="https://picsum.photos/id/1071/600/400" alt="商业街" class="w-full h-48 object-cover">
+                            <img class="lazy-image w-full h-48 object-cover" data-src="https://picsum.photos/id/1071/600/400" alt="商业街">
                             <div class="p-4">
                                 <h3 class="font-semibold text-lg mb-2">商业街</h3>
                                 <p class="text-gray-600 text-sm">校内购物、餐饮、娱乐的集中地，有超市、餐厅、奶茶店等各类店铺。</p>
@@ -547,7 +558,7 @@
                         <h3 class="text-xl font-semibold mb-4 text-gray-700">图书馆</h3>
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
                             <div class="md:col-span-2">
-                                <img src="https://picsum.photos/id/20/800/400" alt="图书馆内部" class="w-full h-64 object-cover rounded-xl mb-4">
+                                <img class="lazy-image w-full h-64 object-cover rounded-xl mb-4" data-src="https://picsum.photos/id/20/800/400" alt="图书馆内部">
                                 
                                 <div class="space-y-4">
                                     <div>
@@ -647,7 +658,7 @@
                             <h3 class="text-xl font-semibold mb-4 text-gray-700">宿舍类型</h3>
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
                                 <div class="border border-gray-200 rounded-xl overflow-hidden">
-                                    <img src="https://picsum.photos/id/164/600/400" alt="四人间宿舍" class="w-full h-48 object-cover">
+                                    <img class="lazy-image w-full h-48 object-cover" data-src="https://picsum.photos/id/164/600/400" alt="四人间宿舍">
                                     <div class="p-4">
                                         <h4 class="font-semibold text-primary mb-2">四人间</h4>
                                         <p class="text-gray-600 text-sm">上床下桌，独立卫生间，有阳台，配备空调、热水器</p>
@@ -655,7 +666,7 @@
                                 </div>
                                 
                                 <div class="border border-gray-200 rounded-xl overflow-hidden">
-                                    <img src="https://picsum.photos/id/174/600/400" alt="六人间宿舍" class="w-full h-48 object-cover">
+                                    <img class="lazy-image w-full h-48 object-cover" data-src="https://picsum.photos/id/174/600/400" alt="六人间宿舍">
                                     <div class="p-4">
                                         <h4 class="font-semibold text-primary mb-2">六人间</h4>
                                         <p class="text-gray-600 text-sm">上下铺，独立卫生间，有阳台，配备空调、热水器</p>
@@ -775,7 +786,7 @@
                     <h3 class="text-xl font-semibold mb-4 text-gray-700">运动场馆</h3>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-7">
                         <div class="rounded-xl overflow-hidden shadow-sm">
-                            <img src="https://picsum.photos/id/1058/600/400" alt="体育馆" class="w-full h-48 object-cover">
+                            <img class="lazy-image w-full h-48 object-cover" data-src="https://picsum.photos/id/1058/600/400" alt="体育馆">
                             <div class="p-5">
                                 <h4 class="font-semibold text-lg mb-2 text-primary">体育馆</h4>
                                 <p class="text-gray-600 mb-3">内设篮球场、羽毛球场、乒乓球室、健身房等</p>
@@ -787,7 +798,7 @@
                         </div>
                         
                         <div class="rounded-xl overflow-hidden shadow-sm">
-                            <img src="https://picsum.photos/id/1059/600/400" alt="田径场" class="w-full h-48 object-cover">
+                            <img class="lazy-image w-full h-48 object-cover" data-src="https://picsum.photos/id/1059/600/400" alt="田径场">
                             <div class="p-5">
                                 <h4 class="font-semibold text-lg mb-2 text-primary">田径场</h4>
                                 <p class="text-gray-600 mb-3">标准400米塑胶跑道，足球场</p>
@@ -871,7 +882,7 @@
                     <h3 class="text-xl font-semibold mb-4 text-gray-700">校内食堂</h3>
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 mb-7">
                         <div class="border border-gray-200 rounded-xl overflow-hidden hover:shadow-md transition-shadow duration-300">
-                            <img src="https://picsum.photos/id/292/600/400" alt="一饭堂" class="w-full h-36 object-cover">
+                            <img class="lazy-image w-full h-36 object-cover" data-src="https://picsum.photos/id/292/600/400" alt="一饭堂">
                             <div class="p-4">
                                 <h4 class="font-semibold text-primary mb-2">一饭堂</h4>
                                 <p class="text-gray-600 text-sm mb-2">靠近东区宿舍，价格实惠</p>
@@ -883,7 +894,7 @@
                         </div>
                         
                         <div class="border border-gray-200 rounded-xl overflow-hidden hover:shadow-md transition-shadow duration-300">
-                            <img src="https://picsum.photos/id/431/600/400" alt="二饭堂" class="w-full h-36 object-cover">
+                            <img class="lazy-image w-full h-36 object-cover" data-src="https://picsum.photos/id/431/600/400" alt="二饭堂">
                             <div class="p-4">
                                 <h4 class="font-semibold text-primary mb-2">二饭堂</h4>
                                 <p class="text-gray-600 text-sm mb-2">位于教学区附近，适合课间用餐</p>
@@ -895,7 +906,7 @@
                         </div>
                         
                         <div class="border border-gray-200 rounded-xl overflow-hidden hover:shadow-md transition-shadow duration-300">
-                            <img src="https://picsum.photos/id/488/600/400" alt="三饭堂" class="w-full h-36 object-cover">
+                            <img class="lazy-image w-full h-36 object-cover" data-src="https://picsum.photos/id/488/600/400" alt="三饭堂">
                             <div class="p-4">
                                 <h4 class="font-semibold text-primary mb-2">三饭堂</h4>
                                 <p class="text-gray-600 text-sm mb-2">靠近西区宿舍，环境较好</p>
@@ -907,7 +918,7 @@
                         </div>
                         
                         <div class="border border-gray-200 rounded-xl overflow-hidden hover:shadow-md transition-shadow duration-300">
-                            <img src="https://picsum.photos/id/365/600/400" alt="清真食堂" class="w-full h-36 object-cover">
+                            <img class="lazy-image w-full h-36 object-cover" data-src="https://picsum.photos/id/365/600/400" alt="清真食堂">
                             <div class="p-4">
                                 <h4 class="font-semibold text-primary mb-2">清真食堂</h4>
                                 <p class="text-gray-600 text-sm mb-2">提供清真食品，风味独特</p>
@@ -995,7 +1006,7 @@
                     <h3 class="text-xl font-semibold mb-4 text-gray-700">校内景点</h3>
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-7">
                         <div class="rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300">
-                            <img src="https://picsum.photos/id/1043/600/400" alt="西湖景区" class="w-full h-40 object-cover">
+                            <img class="lazy-image w-full h-40 object-cover" data-src="https://picsum.photos/id/1043/600/400" alt="西湖景区">
                             <div class="p-4">
                                 <h3 class="font-semibold text-primary mb-1">西湖景区</h3>
                                 <p class="text-gray-600 text-sm">欣赏黑天鹅、湖心亭，春季杨柳依依，景色宜人</p>
@@ -1003,7 +1014,7 @@
                         </div>
                         
                         <div class="rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300">
-                            <img src="https://picsum.photos/id/131/600/400" alt="相思河" class="w-full h-40 object-cover">
+                            <img class="lazy-image w-full h-40 object-cover" data-src="https://picsum.photos/id/131/600/400" alt="相思河">
                             <div class="p-4">
                                 <h3 class="font-semibold text-primary mb-1">相思河</h3>
                                 <p class="text-gray-600 text-sm">校园内的浪漫之地，河畔绿树成荫，适合散步</p>
@@ -1011,7 +1022,7 @@
                         </div>
                         
                         <div class="rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300">
-                            <img src="https://picsum.photos/id/1071/600/400" alt="水生生物博物馆" class="w-full h-40 object-cover">
+                            <img class="lazy-image w-full h-40 object-cover" data-src="https://picsum.photos/id/1071/600/400" alt="水生生物博物馆">
                             <div class="p-4">
                                 <h3 class="font-semibold text-primary mb-1">水生生物博物馆</h3>
                                 <p class="text-gray-600 text-sm">了解海洋生物的好去处，展品丰富</p>
@@ -1019,7 +1030,7 @@
                         </div>
                         
                         <div class="rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300">
-                            <img src="https://picsum.photos/id/42/600/400" alt="校史长廊" class="w-full h-40 object-cover">
+                            <img class="lazy-image w-full h-40 object-cover" data-src="https://picsum.photos/id/42/600/400" alt="校史长廊">
                             <div class="p-4">
                                 <h3 class="font-semibold text-primary mb-1">校史长廊</h3>
                                 <p class="text-gray-600 text-sm">了解学校发展历程，感受海大文化</p>
@@ -1030,7 +1041,7 @@
                     <h3 class="text-xl font-semibold mb-4 text-gray-700">周边景点</h3>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-7">
                         <div class="border border-gray-200 rounded-xl overflow-hidden">
-                            <img src="https://picsum.photos/id/1018/600/400" alt="湖光岩世界地质公园" class="w-full h-48 object-cover">
+                            <img class="lazy-image w-full h-48 object-cover" data-src="https://picsum.photos/id/1018/600/400" alt="湖光岩世界地质公园">
                             <div class="p-5">
                                 <h4 class="font-semibold text-lg mb-2 text-primary">湖光岩世界地质公园</h4>
                                 <p class="text-gray-600 mb-3">距离学校仅2公里，中国唯一的玛珥湖</p>
@@ -1042,7 +1053,7 @@
                         </div>
                         
                         <div class="border border-gray-200 rounded-xl overflow-hidden">
-                            <img src="https://picsum.photos/id/1039/600/400" alt="硇洲岛" class="w-full h-48 object-cover">
+                            <img class="lazy-image w-full h-48 object-cover" data-src="https://picsum.photos/id/1039/600/400" alt="硇洲岛">
                             <div class="p-5">
                                 <h4 class="font-semibold text-lg mb-2 text-primary">硇洲岛</h4>
                                 <p class="text-gray-600 mb-3">中国第一大火山岛，盛产海鲜</p>
@@ -1133,6 +1144,44 @@
     </button>
 
     <script>
+        // 图片懒加载功能实现
+        document.addEventListener('DOMContentLoaded', function() {
+            // 初始化已激活区域的图片
+            loadActiveSectionImages();
+            
+            // 设置图片懒加载观察器
+            const lazyLoadObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        // 加载图片
+                        img.src = img.dataset.src;
+                        // 移除占位符样式
+                        img.classList.remove('lazy-image');
+                        // 停止观察
+                        observer.unobserve(img);
+                    }
+                });
+            });
+            
+            // 观察所有带有data-src属性的图片
+            document.querySelectorAll('img[data-src]').forEach(img => {
+                lazyLoadObserver.observe(img);
+            });
+        });
+        
+        // 加载当前激活区域的图片
+        function loadActiveSectionImages() {
+            const activeSection = document.querySelector('.section-content.active');
+            if (activeSection) {
+                const images = activeSection.querySelectorAll('img[data-src]');
+                images.forEach(img => {
+                    img.src = img.dataset.src;
+                    img.classList.remove('lazy-image');
+                });
+            }
+        }
+        
         // 移动端菜单切换
         const menuToggle = document.getElementById('menuToggle');
         const sidebar = document.getElementById('sidebar');
@@ -1169,7 +1218,11 @@
                 });
                 
                 // 显示目标内容区域
-                document.getElementById(targetId).classList.add('active');
+                const targetSection = document.getElementById(targetId);
+                targetSection.classList.add('active');
+                
+                // 加载新激活区域的图片
+                loadActiveSectionImages();
                 
                 // 更新导航链接样式
                 navLinks.forEach(navLink => {
@@ -1192,12 +1245,19 @@
         // 地图查看功能
         mapPreview.addEventListener('click', () => {
             mapModal.classList.add('active');
-            document.body.style.overflow = 'hidden'; // 防止背景滚动
+            document.body.style.overflow = 'hidden';
+            
+            // 加载高清地图
+            const mapImage = mapModal.querySelector('img[data-src]');
+            if (mapImage && !mapImage.src) {
+                mapImage.src = mapImage.dataset.src;
+                mapImage.classList.remove('lazy-image');
+            }
         });
         
         closeMap.addEventListener('click', () => {
             mapModal.classList.remove('active');
-            document.body.style.overflow = ''; // 恢复滚动
+            document.body.style.overflow = '';
         });
         
         // 点击模态框背景关闭地图
@@ -1263,5 +1323,6 @@
             }
         });
     </script>
-    </body></html>
+</body>
+</html>
     
