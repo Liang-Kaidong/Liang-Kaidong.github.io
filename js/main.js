@@ -85,5 +85,10 @@ function updateFooterClock() {
 updateFooterClock();
 setInterval(updateFooterClock, 1000);
 window.addEventListener("scroll", updateHeaderTheme, { passive: true });
+window.addEventListener("scroll", () => {
+  if (window.matchMedia("(max-width: 820px)").matches && header.classList.contains("menu-open")) {
+    closeNavigation();
+  }
+}, { passive: true });
 window.addEventListener("resize", updateHeaderTheme);
 updateHeaderTheme();
