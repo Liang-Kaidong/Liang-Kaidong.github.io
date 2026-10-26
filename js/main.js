@@ -14,12 +14,12 @@ function closeNavigation() {
 function updateHeaderTheme() {
   const overVideo = Boolean(hero && window.scrollY < hero.offsetHeight - header.offsetHeight);
   const probeY = header.offsetHeight / 2;
-  const sections = [...document.querySelectorAll("main > section, footer")];
+  const sections = [...document.querySelectorAll("main > section, main > figure, footer")];
   const current = sections.find((section) => {
     const rect = section.getBoundingClientRect();
     return rect.top <= probeY && rect.bottom > probeY;
   });
-  const darkBackground = current?.matches(".hero,.platform-section,.chip-detail,.control-section,.feature-dark,.site-footer");
+  const darkBackground = current?.matches(".hero,.platform-section,.chip-detail,.control-section,.feature-dark,.home-project-software,.chatcode-stage,.chatcode-dark,.site-footer");
   const onLight = !overVideo && !darkBackground;
   header.classList.toggle("over-video", overVideo);
   header.classList.toggle("on-light", onLight);
