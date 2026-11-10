@@ -14,11 +14,11 @@
     plus: 'M12 4v16M4 12h16'
   };
   const lines = (n = 3) => `<div class="ui-lines">${Array.from({ length: n }, (_, i) => `<i style="--line:${[92, 76, 86, 53][i % 4]}%"></i>`).join('')}</div>`;
-  const bar = '<div class="ui-windowbar"><img src="assets/images/chatcode-logo.png" alt=""><i></i><div><b></b><b></b><b></b></div></div>';
+  const bar = '<div class="ui-windowbar"><img src="assets/pages/chat-code/images/chatcode-logo.png" alt=""><i></i><div><b></b><b></b><b></b></div></div>';
   const content = {
     history: () => `<div class="ui-mini-heading">${glyph(icons.chat)}<i></i>${glyph(icons.plus)}</div><div class="ui-history">${Array.from({ length: 5 }, (_, i) => `<div class="${i === 1 ? 'selected' : ''}"><span>${glyph(i === 1 ? icons.pin : icons.chat)}</span>${lines(2)}${i < 2 ? glyph(icons.pin) : '<b></b>'}</div>`).join('')}</div>`,
-    conversation: () => `<div class="ui-message user"><i></i>${lines(2)}</div><div class="ui-message assistant"><img src="assets/images/chatcode-logo.png" alt="">${lines(4)}</div><div class="ui-message user second"><i></i>${lines(2)}</div><div class="ui-message assistant"><img src="assets/images/chatcode-logo.png" alt="">${lines(3)}</div><div class="ui-tools">${glyph(icons.copy)}${glyph(icons.check)}<i></i></div>`,
-    material: () => `<div class="ui-material"><div></div><div></div><div></div><img src="assets/images/chatcode-logo.png" alt=""></div><div class="ui-material-foot">${glyph(icons.spark)}${lines(2)}</div>`,
+    conversation: () => `<div class="ui-message user"><i></i>${lines(2)}</div><div class="ui-message assistant"><img src="assets/pages/chat-code/images/chatcode-logo.png" alt="">${lines(4)}</div><div class="ui-message user second"><i></i>${lines(2)}</div><div class="ui-message assistant"><img src="assets/pages/chat-code/images/chatcode-logo.png" alt="">${lines(3)}</div><div class="ui-tools">${glyph(icons.copy)}${glyph(icons.check)}<i></i></div>`,
+    material: () => `<div class="ui-material"><div></div><div></div><div></div><img src="assets/pages/chat-code/images/chatcode-logo.png" alt=""></div><div class="ui-material-foot">${glyph(icons.spark)}${lines(2)}</div>`,
     composer: () => `<div class="ui-mini-heading">${glyph(icons.spark)}<i></i></div>${lines(2)}<div class="ui-composer">${lines(1)}<div>${glyph(icons.plus)}<span class="ui-connected"></span><b>${glyph(icons.send)}</b></div></div>`,
     settings: () => `<div class="ui-mini-heading">${glyph(icons.sliders)}<i></i></div><div class="ui-settings">${[65, 40, 78].map((v, i) => `<div>${lines(1)}<span style="--value:${v}%"><b></b></span></div>`).join('')}</div><div class="ui-switch-row">${glyph(icons.spark)}<span></span></div>`,
     status: () => `<div class="ui-status"><div class="ui-status-ring">${glyph(icons.check)}</div><div class="ui-status-pills"><i></i><i></i><i></i><i></i><i></i></div>${lines(2)}</div>`
