@@ -1,0 +1,26 @@
+KaydonNAS RockX — 当前配置说明
+更新：2026-11-09
+
+平台：Radxa ROCK Pi X
+处理器：Intel Atom x5-Z8350，四核 x86-64
+运行内存：4GB LPDDR3
+板载存储：128GB eMMC（标称容量，实际可用空间受系统和格式化影响）
+额外硬盘：当前没有
+USB：1 × USB 3.0 Type-A，3 × USB 2.0 Type-A
+扩展：USB 3.0 可连接兼容外接存储，另配
+网络：1 × RJ45 千兆以太网
+预装系统：飞牛 fnOS，具体版本待记录
+结构：前置屏幕、侧面风扇、分体外壳
+模型外廓：124 × 136 × 128 mm；实物尺寸与重量待复核
+温度：当前样机使用记录 50–65°C，随环境和负载变化
+噪音：日常使用几乎听不见（主观听感）
+处理器场景设计功耗：2W SDP（Intel 官方参数，不代表开发板或整机实际功耗）
+来源：https://www.intel.com/content/www/us/en/products/sku/93361/intel-atom-x5z8350-processor-2m-cache-up-to-1-92-ghz/specifications.html
+项目状态：个人产品项目展示，尚未公布销售与交付安排
+
+开发板规格来源：https://wiki.radxa.com/RockpiX/getting_started
+系统官方资料：https://fnnas.com/
+使用帮助：https://help.fnnas.com/
+实拍板卡图：https://forum.radxa.com/t/one-step-forward/3923
+
+产品外观图与宣传片为设计可视化。官方板卡照片及系统素材版权归相应权利人所有。
